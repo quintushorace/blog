@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,16 +79,23 @@
 
 
 
-<meta name="description" content="宁静以致远">
-<meta property="og:type" content="website">
-<meta property="og:title" content="浩子">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="第 16 章 反射（Reflection）2016-09-29 转自：https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md Java 提供的反射机制允许您于执行时期动态加载类别、检视类别信息、生成对象或操作生成的对象，要举反射机制的一个应用实例，就是在集成开发环境中所提供的方法提示或是类别检视工具，另外像 JSP">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 反射机制">
+<meta property="og:url" content="http://yoursite.com/2018/07/11/Java-反射机制/index.html">
 <meta property="og:site_name" content="浩子">
-<meta property="og:description" content="宁静以致远">
+<meta property="og:description" content="第 16 章 反射（Reflection）2016-09-29 转自：https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md Java 提供的反射机制允许您于执行时期动态加载类别、检视类别信息、生成对象或操作生成的对象，要举反射机制的一个应用实例，就是在集成开发环境中所提供的方法提示或是类别检视工具，另外像 JSP">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-01.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-02.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-03.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-04.png">
+<meta property="og:updated_time" content="2018-07-11T08:22:24.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浩子">
-<meta name="twitter:description" content="宁静以致远">
+<meta name="twitter:title" content="Java 反射机制">
+<meta name="twitter:description" content="第 16 章 反射（Reflection）2016-09-29 转自：https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md Java 提供的反射机制允许您于执行时期动态加载类别、检视类别信息、生成对象或操作生成的对象，要举反射机制的一个应用实例，就是在集成开发环境中所提供的方法提示或是类别检视工具，另外像 JSP">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/11/images/img16-01.png">
 
 
 
@@ -118,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/11/Java-反射机制/"/>
 
 
 
 
 
-  <title>浩子</title>
+  <title>Java 反射机制 | 浩子</title>
   
 
 
@@ -143,8 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +243,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/11/Java-反射机制/" itemprop="url">Java 反射机制</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java 反射机制</h1>
         
 
         <div class="post-meta">
@@ -318,6 +322,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2018/07/11/Java-反射机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2018/07/11/Java-反射机制/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -374,9 +388,7 @@
       
 
       
-        
-          
-            <h1 id="第-16-章-反射（Reflection）"><a href="#第-16-章-反射（Reflection）" class="headerlink" title="第 16 章 反射（Reflection）"></a>第 16 章 反射（Reflection）</h1><p>2016-09-29 转自：<a href="https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md" target="_blank" rel="noopener">https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md</a></p>
+        <h1 id="第-16-章-反射（Reflection）"><a href="#第-16-章-反射（Reflection）" class="headerlink" title="第 16 章 反射（Reflection）"></a>第 16 章 反射（Reflection）</h1><p>2016-09-29 转自：<a href="https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md" target="_blank" rel="noopener">https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md</a></p>
 <p>Java 提供的反射机制允许您于执行时期动态加载类别、检视类别信息、生成对象或操作生成的对象，要举反射机制的一个应用实例，就是在集成开发环境中所提供的方法提示或是类别检视工具，另外像 JSP 中的 JavaBean 自动收集请求信息也使用到反射，而一些软件开发框架（Framework）也常见到反射机制的使用，以达到动态加载用户自定义类别的目的。</p>
 <p>即使您暂时用不到反射机制，也建议您花时间看看这个章节，藉由对反射机制的认识，您可以了解 Java 中是如何加载类别的，而且了解到每个被载入的类别在 JVM 中，都以 Class 类别的一个实例存在的事实。</p>
 <hr>
@@ -651,8 +663,6 @@ Hello, Justin
 </ul>
 <p>下一个章节要来介绍 J2SE 5.0 中新增的 Annotation 功能，Annotation 是 J2SE 5.0 对 metadata 的支持，metadata 简单的说就是「数据的数据」（Data about data），您可以使用 Annotation 对程序代码作出一些说明，以利一些程序代码分析工具来使用这些信息。</p>
 
-          
-        
       
     </div>
     
@@ -670,777 +680,36 @@ Hello, Justin
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/11/Android-插件化开发/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/11/Android-插件化开发/" itemprop="url">Android 插件化开发</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T16:20:59+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/develop/" itemprop="url" rel="index">
-                    <span itemprop="name">develop</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/blog/tags/Java/" rel="tag"># Java</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><body></body></p>
-<section class="content"><br><ul class="items"><br>    <li style="background: #FFFFFF"><article class="wrap"><br>    <h1><a href="#" title="title">Android博客周刊专题之＃插件化开发＃</a></h1><br>    <div class="content">本期专栏目讨论插件化开发。插件化涉及的东西很多，所以我们需要多个维度去学习。大概分为5个部分：预备知识、入门、进阶、系列、类库。一步一步深入了解插件的原理。本专栏会不定时更新相关内容，请留意更新的消息。</div><br>    <footer>转自：<a href="http://www.androidblog.cn/index.php/Index/detail/id/16#" target="_blank" rel="noopener">http://www.androidblog.cn/index.php/Index/detail/id/16#</a></footer> </article></li><br><br></ul><br><br><article class="wrap" style=" margin-top:40px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 20px"><b>基础</b><br></div><br><h2 style="margin-left: 15px"><a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/" target="_blank">1.Java 类加载器</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>类加载器（class loader）是 Java™中的一个很重要的概念。类加载器负责加载 Java 类的字节代码到 Java 虚拟机中。本文首先详细介绍了 Java 类加载器的基本概念，包括代理模式、加载类的具体过程和线程上下文类加载器等，接着介绍如何开发自己的类加载器，最后介绍了类加载器在 Web 容器和 OSGi™中的应用。</div><h2 style="margin-left: 15px"><a href="https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md" target="_blank">2.反射原理</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Java 提供的反射機制允許您於執行時期動態載入類別、檢視類別資訊、生成物件或操作生成的物件，要舉反射機制的一個應用實例，就是在整合式開發環境中所提供的方法提示或是類別檢視工具，另外像 JSP 中的 JavaBean 自動收集請求資訊也使用到反射，而一些軟體開發框架（Framework）也常見到反射機制的使用，以達到動態載入使用者自訂類別的目的。</div><h2 style="margin-left: 15px"><a href="http://www.jianshu.com/p/6f6bb2f0ece9" target="_blank">3.代理模式及Java实现动态代理</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>定义：给某个对象提供一个代理对象，并由代理对象控制对于原对象的访问，即客户不直接操控原对象，而是通过代理对象间接地操控原对象。</div> </article><article class="wrap" style=" margin-top:40px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 20px"><b>入门</b><br></div><br><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/u013478336/article/details/50734108" target="_blank">1.Android动态加载dex技术初探</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>  Android使用Dalvik虚拟机加载可执行程序，所以不能直接加载基于class的jar，而是需要将class转化为dex字节码，从而执行代码。优化后的字节码文件可以存在一个<em>.jar中，只要其内部存放的是</em>.dex即可使用。</div><h2 style="margin-left: 15px"><a href="http://104.236.134.90/2016/02/02/Android%E6%8F%92%E4%BB%B6%E5%8C%96%E5%9F%BA%E7%A1%80/" target="_blank">2.Android插件化入门</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>开发者将插件代码封装成Jar或者APK。宿主下载或者从本地加载Jar或者APK到宿主中。将宿主调用插件中的算法或者Android特定的Class（如Activity）</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/u010687392/article/details/47121729?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io" target="_blank">3.插件化开发—动态加载技术加载已安装和未安装的apk</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>动态加载技术就是使用类加载器加载相应的apk、dex、jar（必须含有dex文件），再通过反射获得该apk、dex、jar内部的资源（class、图片、color等等）进而供宿主app使用。</div><h2 style="margin-left: 15px"><a href="https://blog.tingyun.com/web/article/detail/166" target="_blank">4.Android动态加载技术三个关键问题详解</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>动态加载技术（也叫插件化技术）在技术驱动型的公司中扮演着相当重要的角色，当项目越来越庞大的时候，需要通过插件化来减轻应用的内存和CPU占用，还可以实现热插拔，即在不发布新版本的情况下更新某些模块。</div> </article><article class="wrap" style=" margin-top:40px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 20px"><b>进阶</b><br></div><br><h2 style="margin-left: 15px"><a href="http://mp.weixin.qq.com/s?__biz=MzAwMTcwNTE0NA==&mid=400217391&idx=1&sn=86181541ce0164156dfab135ed99bb5c&scene=0&key=b410d3164f5f798e61a5d4afb759fa38371c8b119384c6163a30c28163b4d4d5f59399f2400800ec842f1d0e0ffb84af&ascene=0&uin=MjExMjQ&pass_ticket=Nt5Jaa28jjFxcQO9o%2BvQiXX%2B0iXG5DlZlHNW97Fk1Ew%3D" target="_blank">1.携程Android App插件化和动态加载实践</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>携程Android App的插件化和动态加载框架已上线半年，经历了初期的探索和持续的打磨优化，新框架和工程配置经受住了生产实践的考验。本文将详细介绍Android平台插件式开发和动态加载技术的原理和实现细节，回顾携程Android App的架构演化过程，期望我们的经验能帮助到更多的Android工程师。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/hkxxx/article/details/42194387" target="_blank">2.动态加载APK原理分享</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br> 被加载的apk称之为插件，因为机制类似于生物学的”寄生”，加载了插件的应用也被称为宿主。<br>往往不是所有的apk都可作为插件被加载，往往需要遵循一定的”开发规范”，还需要插件项目引入某种api类库，业界通常都是这么做的。</div><h2 style="margin-left: 15px"><a href="http://www.cnblogs.com/coding-way/p/4669591.html" target="_blank">3.Android插件化的一种实现</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Android的插件化已经是老生常谈的话题了，插件化的好处有很多：解除代码耦合，插件支持热插拔，静默升级，从根本上解决65K属性和方法的bug等等。下面给大家介绍一下我们正在用的差价化框架。本片主要以类图的方式向大家介绍插件话框架的实现。</div><h2 style="margin-left: 15px"><a href="http://mogu.io/117-117" target="_blank">4.蘑菇街 App 的组件化之路</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>随着我街业务的蓬勃发展，产品和运营随时上新功能新活动的需求越来越强烈，经常可以听到“有个功能我想周x上，行不行”。行么？当然是不行啦，上新功能得发新版本啊，到时候费时费力打乱开发节奏不说，覆盖率也是个问题。</div><h2 style="margin-left: 15px"><a href="http://www.codekk.com/open-source-project-analysis/detail/Android/FFish/DynamicLoadApk%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io" target="_blank">5.DynamicLoadApk 源码解析</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>DynamicLoadApk 是一个开源的 Android 插件化框架。插件化的优点包括：(1) 模块解耦，(2) 动态升级，(3) 高效并行开发(编译速度更快) (4) 按需加载，内存占用更低等等DynamicLoadApk 提供了 3 种开发方式，让开发者在无需理解其工作原理的情况下快速的集成插件化功能。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/singwhatiwanna/article/details/22597587" target="_blank">6.Android apk动态加载机制的研究</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>问题是这样的：我们知道，apk必须安装才能运行，如果不安装要是也能运行该多好啊，事实上，这不是完全不可能的，尽管它比较难实现。在理论层面上，我们可以通过一个宿主程序来运行一些未安装的apk，当然，实践层面上也能实现，不过这对未安装的apk有要求。我们的想法是这样的，首先要明白apk未安装是不能被直接调起来.</div><h2 style="margin-left: 15px"><a href="http://tech.meituan.com/mt-android-auto-split-dex.html" target="_blank">7.美团Android DEX自动拆包及动态加载简介</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>作为一个android开发者，在开发应用时，随着业务规模发展到一定程度，不断地加入新功能、添加新的类库，代码在急剧的膨胀，相应的apk包的大小也急剧增加， 那么终有一天，你会不幸遇到这个错误.<br></div><h2 style="margin-left: 15px"><a href="http://mp.weixin.qq.com/s?__biz=MzAwOTE0ODEwMQ==&mid=401731625&idx=1&sn=9bf2bacfbba43ba9dc7b2e854b64e66c&scene=23&srcid=1231ni0s2Y0OMfYSoNhkkJ47#rd&ADUIN=289832127&ADSESSION=1451551778&ADTAG=CLIENT.QQ.5425_.0&ADPUBNO=26509" target="_blank">8.途牛原创|途牛Android App的插件实现</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>途牛的插件化是基于dynamic-load-apk（github）实现的。定义了宿主和插件的通信方式，使得两者能够互起对方的页面，调用彼此的功能。同时对activity的启动方式singletask等进行了模式实现，并增加了对Service的支持等。总之使得插件开发最大限度的保持着原有的Android开发习惯。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/singwhatiwanna/article/details/23387079" target="_blank">9. Android apk资源加载和activity生命周期管理</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>博主分析了Android中apk的动态加载机制，并在文章的最后指出需要解决的两个复杂问题：资源的访问和activity生命周期的管理，而本文将会分析这两个复杂问题的解决方法。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/singwhatiwanna/article/details/39937639" target="_blank">10.APK动态加载框架（DL）解析</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>首先要说的是动态加载技术（或者说插件化）在技术驱动型的公司中扮演这相当重要的角色，当项目越来越庞大的时候，需要通过插件化来减轻应用的内存和cpu占用，还可以实现热插拔，即在不发布新版本的情况下更新某些模块。<br></div> </article><article class="wrap" style=" margin-top:40px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 20px"><b>系列</b><br></div><br><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062866" target="_blank">1.Kaedea—Android动态加载技术 简单易懂的介绍</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>我们很早开始就在Android项目中采用了动态加载技术，主要目的是为了达到让用户不用重新安装APK就能升级应用的功能（特别是 SDK项目），这样一来不但可以大大提高应用新版本的覆盖率，也减少了服务器对旧版本接口兼容的压力，同时如果也可以快速修复一些线上的BUG。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062880" target="_blank">2.Kaedea—Android动态加载基础 ClassLoader的工作机制</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>早期使用过Eclipse等Java编写的软件的同学可能比较熟悉，Eclipse可以加载许多第三方的插件（或者叫扩展），这就是动态加载。这些插件大多是一些Jar包，而使用插件其实就是动态加载Jar包里的Class进行工作。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062899" target="_blank">3.Kaedea—Android动态加载补充 加载SD卡的SO库</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Android中JNI的使用其实就包含了动态加载，APP运行时动态加载.so库并通过JNI调用其封装好的方法。后者一般是使用NDK工具从C/C++代码编译而成，运行在Native层，效率会比执行在虚拟机的Java代码高很多，所以Android中经常通过动态加载.so库来完成一些对性能比较有需求的工作（比如T9搜索、或者Bitmap的解码、图片高斯模糊处理等）。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062952" target="_blank">4.Kaedea—Android动态加载入门 简单加载模式</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Java程序中，JVM虚拟机是通过类加载器ClassLoader加载.jar文件里面的类的。Android也类似，不过Android用的是Dalvik/ART虚拟机，不是JVM，也不能直接加载.jar文件，而是加载dex文件。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062972" target="_blank">5.Kaedea—Android动态加载进阶 代理Activity模式</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>简单模式中，使用ClassLoader加载外部的Dex或Apk文件，可以加载一些本地APP不存在的类，从而执行一些新的代码逻辑。但是使用这种方法却不能直接启动插件里的Activity。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004077469" target="_blank">6.Kaedea—Android动态加载黑科技 动态创建Activity模式</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>还记得我们在代理Activity模式里谈到启动插件APK里的Activity的两个难题吗，由于插件里的Activity没在主项目的Manifest里面注册，所以无法经历系统Framework层级的一系列初始化过程，最终导致获得的Activity实例并没有生命周期和无法使用res资源。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/17679823" target="_blank">7.尼古拉斯—插件开发基础篇：动态加载技术解读</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>在目前的软硬件环境下，Native App与Web App在用户体验上有着明显的优势，但在实际项目中有些会因为业务的频繁变更而频繁的升级客户端，造成较差的用户体验，而这也恰恰是Web App的优势。本文对网上Android动态加载jar的资料进行梳理和实践在这里与大家一起分享，试图改善频繁升级这一弊病。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/41384667" target="_blank">8.尼古拉斯—插件开发开篇：类加载器分析</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>这篇文章主要介绍了Android中主要的两个类加载器：PathClassLoader和DexClassLoader,他们的区别，联系，用法等问题，以及我们在制作插件的过程中会遇到哪些常见的问题。这篇文章也是后续两篇文章的基础，因为如果不了解这两个类的话，我们将无法进行后续的操作。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/47679843" target="_blank">9.尼古拉斯—插件开发中篇：资源加载问题(换肤原理解析)</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>这篇文章主要通过现在一些应用自带的换肤技术的解读来看看，在开发插件的过程中如何解决一些资源加载上的问题，这个问题为何要单独拿出来解释，就是因为他涉及的知识很多，也是后面一篇文章的基础，我们在需要加载插件中的资源文件的时候。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/48104455" target="_blank">10.尼古拉斯—插件开发终极篇：动态加载Activity(免安装运行程序)</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>这篇文章主要是讲解了如何加载插件中的Activity。从而实现免安装运行程序，同时这篇文章也是对前三篇文章知识的综合使用。下载很多应用都会使用到插件技术，因为包的大小和一些功能的优先级来决定哪些模块可以制作成插件。</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/01/28/understand-plugin-framework-overview/" target="_blank">11.Weishu—Android插件化原理解析——概要</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>类的加载可以使用Java的ClassLoader机制，但是对于Android来说，并不是说类加载进来就可以用了，很多组件都是有“生命”的；因此对于这些有血有肉的类，必须给它们注入活力，也就是所谓的组件生命周期管理.</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/01/28/understand-plugin-framework-proxy-hook/" target="_blank">12.Weishu—Android插件化原理解析——Hook机制之动态代理</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>使用代理机制进行API Hook进而达到方法增强是框架的常用手段，比如J2EE框架Spring通过动态代理优雅地实现了AOP编程，极大地提升了Web开发效率；同样，插件框架也广泛使用了代理机制来增强系统API从而达到插件化的目的.</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/02/16/understand-plugin-framework-binder-hook/" target="_blank">13.Weishu—Android插件化原理解析——Hook机制之Binder Hook</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Android系统通过Binder机制给应用程序提供了一系列的系统服务，诸如ActivityManagerService，ClipboardManager， AudioManager等；这些广泛存在系统服务给应用程序提供了诸如任务管理，音频，视频等异常强大的功能。</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/03/07/understand-plugin-framework-ams-pms-hook/" target="_blank">14.Weishu—Android 插件化原理解析——Hook机制之AMS&amp;PMS</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>在前面的文章中我们介绍了DroidPlugin的Hook机制，也就是代理方式和Binder Hook；插件框架通过AOP实现了插件使用和开发的透明性。在讲述DroidPlugin如何实现四大组件的插件化之前，有必要说明一下它对AMS以及PMS的Hook方式。</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/03/21/understand-plugin-framework-activity-management/" target="_blank">15.Weishu—Android 插件化原理解析——Activity生命周期管理</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>之前的 Android插件化原理解析 系列文章揭开了Hook机制的神秘面纱，现在我们手握倚天屠龙，那么如何通过这种技术完成插件化方案呢？具体来说，插件中的Activity，Service等组件如何在Android系统上运行起来？<br></div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/04/05/understand-plugin-framework-classloader/" target="_blank">16.Weishu—Android 插件化原理解析——插件加载机制</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>上文 Activity生命周期管理 中我们地完成了『启动没有在AndroidManifest.xml中显式声明的Activity』的任务；通过Hook AMS和拦截ActivityThread中H类对于组件调度我们成功地绕过了AndroidMAnifest.xml的限制。<br></div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/04/12/understand-plugin-framework-receiver/" target="_blank">17.Weishu—Android插件化原理解析——广播的管理</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>在Activity生命周期管理 以及 插件加载机制 中我们详细讲述了插件化过程中对于Activity组件的处理方式，为了实现Activity的插件化我们付出了相当多的努力；那么Android系统的其他组件，比如BroadcastReceiver，Service还有ContentProvider，它们又该如何处理呢？</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/05/11/understand-plugin-framework-service/" target="_blank">18.Weishu—Android 插件化原理解析——Service的插件化</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>在 Activity生命周期管理 以及 广播的管理 中我们详细探讨了Android系统中的Activity、BroadcastReceiver组件的工作原理以及它们的插件化方案，相信读者已经对Android Framework和插件化技术有了一定的了解；</div> </article><article class="wrap" style=" margin-top:40px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 20px"><b>类库</b><br></div><br><h2 style="margin-left: 15px"><a href="https://github.com/Qihoo360/DroidPlugin" target="_blank">1.DroidPlugin</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>是360手机助手在Android系统上实现了一种新的插件机制</div><h2 style="margin-left: 15px"><a href="https://github.com/limpoxe/Android-Plugin-Framework" target="_blank">2.Android-Plugin-Framework</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>此项目是Android插件开发框架完整源码及示例。用来通过动态加载的方式在宿主程序中运行插件APK。</div><h2 style="margin-left: 15px"><a href="https://github.com/wequick/Small" target="_blank">3.Small</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>世界那么大，组件那么小。Small，做最轻巧的跨平台插件化框架。里面有很详细的文档</div><h2 style="margin-left: 15px"><a href="https://github.com/singwhatiwanna/dynamic-load-apk" target="_blank">4.dynamic-load-apk</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Android 使用动态加载框架DL进行插件化开发</div><h2 style="margin-left: 15px"><a href=" https://github.com/mmin18/AndroidDynamicLoader" target="_blank">5.AndroidDynamicLoader</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Android 动态加载框架，他不是用代理 Activity 的方式实现而是用 Fragment 以及 Schema 的方式实现</div><h2 style="margin-left: 15px"><a href="https://github.com/CtripMobile/DynamicAPK" target="_blank">6.DynamicAPK</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>实现Android App多apk插件化和动态加载，支持资源分包和热修复.携程App的插件化和动态加载框架.</div><h2 style="margin-left: 15px"><a href="https://github.com/bunnyblue/ACDD/blob/master/README-Zh.md" target="_blank">7.ACDD</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>非代理Android动态部署框架</div><h2 style="margin-left: 15px"><a href="https://github.com/houkx/android-pluginmgr" target="_blank">8.android-pluginmgr</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>不需要插件规范的apk动态加载框架。</div> </article><article class="wrap" style=" margin-top:40px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 20px"><b>参考视频</b><br></div><br><h2 style="margin-left: 15px"><a href="http://www.infoq.com/cn/presentations/the-realization-principle-and-application-of-droidplugin" target="_blank">1.DroidPlugin的实现原理及其应用</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br>Droid Plugin是360手机助手在2015年初研发的一个全新的基于Android平台的插件机制.</div><h2 style="margin-left: 15px"><a href="http://v.youku.com/v_show/id_XNTMzMjYzMzM2.html" target="_blank">2.android插件化及动态部署</a><br></h2><br><br><div style="margin-top: 15px; margin-left: 25px; margin-bottom: 20px"><br> 阿里技术沙龙第十六期《android插件化及动态部署》视频</div> </article> </section>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/11/Github-Top100/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/11/Github-Top100/" itemprop="url">Github Top100</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T09:16:30+08:00">
-                2018-07-11
-              </time>
+              <a href="/blog/2018/07/11/Android-插件化开发/" rel="next" title="Android 插件化开发">
+                <i class="fa fa-chevron-left"></i> Android 插件化开发
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/develop/" itemprop="url" rel="index">
-                    <span itemprop="name">develop</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  4,057
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  15
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="转-GitHub-Top-100-简介"><a href="#转-GitHub-Top-100-简介" class="headerlink" title="(转) GitHub Top 100 简介"></a>(转) GitHub Top 100 简介</h2><p>主要对当前 GitHub 排名前 100 的项目做一个简单的简介, 方便初学者快速了解到当前 Objective-C 在 GitHub 的情况.</p>
-<table>
-<thead>
-<tr>
-<th>项目名称</th>
-<th>项目信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1. <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a></td>
-<td>作者是 NSHipster 的博主, iOS 开发界的大神级人物, 毕业于卡内基·梅隆大学, 开源了许多牛逼的项目, 这个便是其中之一, AFNetworking 采用 NSURLConnection + NSOperation, 主要方便与服务端 API 进行数据交换, 操作简单, 功能强大, 现在许多人都用它取代 ASIHTTPRequest</td>
-</tr>
-<tr>
-<td>2. <a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="noopener">GPUImage</a></td>
-<td>一款强大的图片滤镜工具, 支持自定义滤镜, 可用来实时处理图片和视频流, 作者是 SonoPlot 公司的 CTO, 在很小的时候便开始接触编程, 他在 <a href="http://stackoverflow.com/users/19679/brad-larson" target="_blank" rel="noopener">SO</a> 上面的回答也有很多值得阅读, GPUImage 这个项目从 2012 年开始, 使用 OpenGL 图形程序接口编写, 性能非常好, 现在很多 iOS 程序员都用它来实现 iOS 的模糊效果</td>
-</tr>
-<tr>
-<td>3. <a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a></td>
-<td>作者 Olivier Poitrey 是 Dailymotion 的 CTO, 拥有多个不错的开源项目, 此项目常用于对从 Web 端接受到的图片进行缓存, 是 UIImageView 的扩展, 应用起来比较简单</td>
-</tr>
-<tr>
-<td>4. <a href="https://github.com/RestKit/RestKit" target="_blank" rel="noopener">RestKit</a></td>
-<td>主要用于 iOS 上网络通信, 允许与 RESTful Web 服务交互, 常用于处理 API, 解析 JSON, 映射响应对象等操作, 简单易用, 方便你把所有精力都放在对数据的操作上</td>
-</tr>
-<tr>
-<td>5. <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="noopener">ReactiveCocoa</a></td>
-<td>由 GitHub 工程师们开发的一个应用于 iOS 和 OS X 开发的函数响应式编程新框架, Matt 称其为 “An open source project that exemplifies this brave new era for Objective-C”, 也有人说它是 Cocoa 的未来, 具体可看唐巧写的这篇<a href="http://www.devtang.com/blog/2014/02/11/reactivecocoa-introduction" target="_blank" rel="noopener">文章</a></td>
-</tr>
-<tr>
-<td>6. <a href="https://github.com/facebookarchive/three20" target="_blank" rel="noopener">three20</a></td>
-<td>由 Facebook iOS 客户端衍生出的一款 iPhone 框架, 内置许多丰富的功能, 有丰富的界面, 对底层的操作便捷, 为开发者省下了很多时间, 但现在已经停止了更新, 一个 <a href="https://github.com/facebookarchive/three20/pull/832?utm_source=iOS+Dev+Weekly&amp;utm_campaign=46a7deb647-iOS_Dev_Weekly_Issue_100&amp;utm_medium=email&amp;utm_term=0_7bda94b7ca-46a7deb647-299428269" target="_blank" rel="noopener">PR</a> 把代码删得干干净净, 不要好奇去点开 Files changed, 我点开后该页面直接卡死, three20 当中的一位作者创建了 <a href="https://github.com/jverkoey/nimbus" target="_blank" rel="noopener">Nimbus</a>, 算是 three20 的一个替代品</td>
-</tr>
-<tr>
-<td>7. <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a></td>
-<td>作者 Matej Bukovinski 是一位全栈工程师, UI/UX 设计师,  此项目是一款提示框第三方库, 帮助开发者快速应用到项目中)</td>
-</tr>
-<tr>
-<td>8. <a href="https://github.com/magicalpanda/MagicalRecord" target="_blank" rel="noopener">MagicalRecord</a></td>
-<td>作者是 Coursera 的 iOS 工程师, 该项目创作灵感来自于 Ruby on Rails 的 Active Record, 主要为方便操作 CoreData 而生, 帮助清除 CoreData 引用的代码, 协助方便 CoreData 的工作</td>
-</tr>
-<tr>
-<td>9. <a href="https://github.com/ccgus/fmdb" target="_blank" rel="noopener">FMDB</a></td>
-<td>一个对 SQLite 进行封装的库, 使用起来方便, 简单</td>
-</tr>
-<tr>
-<td>10. <a href="https://github.com/Mantle/Mantle" target="_blank" rel="noopener">Mantle</a></td>
-<td>作者是 GitHub 的员工, 文档写的很清楚: Mantle makes it easy to write a simple model layer for your Cocoa or Cocoa Touch application, 主要用来将 JSON 数据模型化为 Model 对象, 唱吧在前段时间也改用 Mantle 了.</td>
-</tr>
-<tr>
-<td>11. <a href="https://github.com/Grouper/FlatUIKit" target="_blank" rel="noopener">FlatUIKit</a></td>
-<td>收集了很多扁平化 UI 的 iOS 组件, 方便使用</td>
-</tr>
-<tr>
-<td>12. <a href="https://github.com/pokeb/asi-http-request" target="_blank" rel="noopener">ASIHTTPRequest</a></td>
-<td>一个轻量级的 iOS 网络通信类库, 基于 CFNetwork 框架开发, 但现在已经停止更新, 多数开发者改用 AFNetworking 替代)</td>
-</tr>
-<tr>
-<td>13. <a href="https://github.com/path/FastImageCache" target="_blank" rel="noopener">FastImageCache</a></td>
-<td>Path 公司出品的 iOS 库, 作者 Mallory Paine 是苹果前员工, 此类库适用于在滚动时快速显示图像, 高速持久是其最大的特点</td>
-</tr>
-<tr>
-<td>14. <a href="https://github.com/Masonry/Masonry" target="_blank" rel="noopener">Masonry</a></td>
-<td>一个轻量级的布局框架, 同时支持 iOS 和 Mac OS X, 语法优雅, 帮助开发者快速适配不同分辨率的 iOS 设备</td>
-</tr>
-<tr>
-<td>15. <a href="https://github.com/facebook/Shimmer" target="_blank" rel="noopener">Shimmer</a></td>
-<td>Facebook 推出的一款具有闪烁效果的第三方控件, 供它旗下一款名为 Paper 的应用使用, 安装使用整个过程都十分简单</td>
-</tr>
-<tr>
-<td>16. <a href="https://github.com/TransitApp/SVProgressHUD" target="_blank" rel="noopener">SVProgressHUD</a></td>
-<td>又一款轻量级的 iOS 第三方控件, 用于显示任务加载时的动画, 非常轻便, 容易使用</td>
-</tr>
-<tr>
-<td>17. <a href="https://github.com/jigish/slate" target="_blank" rel="noopener">Slate</a></td>
-<td>一款窗口管理应用程序, 但在两年前就已经停止更新了</td>
-</tr>
-<tr>
-<td>18. <a href="https://github.com/johnezang/JSONKit" target="_blank" rel="noopener">JSONKit</a></td>
-<td>主要用于解析 JSON, 适用于 iOS6 以下环境, 自从 iOS5 开始 Apple 官方给出了 NSJSONSerialization API, 自此大家都用官方的了</td>
-</tr>
-<tr>
-<td>19. <a href="https://github.com/jverkoey/nimbus" target="_blank" rel="noopener">Nimbus</a></td>
-<td>作者 Jeff 曾为 Facebook, Google 做过不少好东西, 也是 three20 的成员之一, three20 停更后, 他创造出这个框架来代替 three20, 文档齐全</td>
-</tr>
-<tr>
-<td>20. <a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="noopener">CocoaLumberjack</a></td>
-<td>这是 Mac 和 iOS 的一款强大的日志框架, 配置简单, 多线程, 提供更高级的 log 功能, 可用于代替默认的 NSLog 语句</td>
-</tr>
-<tr>
-<td>21. <a href="https://github.com/facebook/facebook-ios-sdk" target="_blank" rel="noopener">Facebook SDK for iOS</a></td>
-<td>Facebook 官方的 iOS SDK, 方便开发者集成 Facebook 的一些功能到自己的 iOS APP 里面</td>
-</tr>
-<tr>
-<td>22. <a href="https://github.com/facebook/AsyncDisplayKit" target="_blank" rel="noopener">AsyncDisplayKit</a></td>
-<td>Facebook 开源的一款 iOS UI 框架, Paper 用的就是该框架, 另外框架还用到了 Facebook 早期开源 Pop 动画引擎</td>
-</tr>
-<tr>
-<td>23. <a href="https://github.com/supermarin/Alcatraz" target="_blank" rel="noopener">Alcatraz</a></td>
-<td>Alcatraz 是一款管理 Xcode 插件、模版以及颜色配置的工具, 可以集成到 Xcode 的图形界面中, 安装删除都是几条命令的事, 很方便, 支持自己开发插件并上传</td>
-</tr>
-<tr>
-<td>24. <a href="https://github.com/Inferis/ViewDeck" target="_blank" rel="noopener">ViewDeck</a></td>
-<td>一款开源的 iOS 活动面板组件, 还原 Path 2.0 的侧滑效果, 作者因为时间关系在两年前停止对其更新</td>
-</tr>
-<tr>
-<td>25. <a href="https://github.com/jessesquires/JSQMessagesViewController" target="_blank" rel="noopener">JSQMessagesViewController</a></td>
-<td>优雅的 iOS 消息类库, 常用于聊天应用中, 可定制性高</td>
-</tr>
-<tr>
-<td>26. <a href="https://github.com/Flipboard/FLEX" target="_blank" rel="noopener">FLEX</a></td>
-<td>这是 Flipboard 官方发布的一组专门用于 iOS 开发的应用内调试工具, 开发者无需将其连接到 LLDB/Xcode 或其他远程调试服务器,支持直接在 App 中运行</td>
-</tr>
-<tr>
-<td>27. <a href="https://github.com/facebook/xctool" target="_blank" rel="noopener">Xctool</a></td>
-<td>是 Facebook 开源的一个命令行工具，用来替代苹果的 XcodeBuild 工具, 极大的方便了 iOS 的构建和测试, 输出错误信息也比较友好, 受到许多 iOS 开发者的称赞, 经常与其搭配使用的还有 OCUnit, <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CI</a>, <a href="http://oclint.org" target="_blank" rel="noopener">OCLint</a> 等测试工具</td>
-</tr>
-<tr>
-<td>28. <a href="https://github.com/OpenEmu/OpenEmu" target="_blank" rel="noopener">OpenEmu</a></td>
-<td>超强的游戏模拟器, 做游戏开发必备, 官网做得也很不错</td>
-</tr>
-<tr>
-<td>29. <a href="https://github.com/nicklockwood/iCarousel" target="_blank" rel="noopener">iCarousel</a></td>
-<td>作者是英国 Charcoal Design 公司的创始人, 开源领域的贡献颇为卓著, 这个项目就是其中之一, 这是一款可以在 iOS 上实现旋转木马视图切换效果的第三方控件, 并提供多种切换效果</td>
-</tr>
-<tr>
-<td>30. <a href="https://github.com/romaonthego/RESideMenu" target="_blank" rel="noopener">RESideMenu</a></td>
-<td>作者 Roman Efimov 是雅虎的 iOS 工程师, 这个项目实现了 iOS 上的菜单侧滑效果, 创意来源于 Dribbble, 该项目支持 iOS8</td>
-</tr>
-<tr>
-<td>321 <a href="https://github.com/kevinzhow/PNChart" target="_blank" rel="noopener">PNChart</a></td>
-<td>作者周楷雯是 90 后, 秒视的创始人, 该项目是一个带动画效果的图表控件, 简约易用, 受到不少开发者喜爱</td>
-</tr>
-<tr>
-<td>31.2<a href="https://github.com/square/PonyDebugger" target="_blank" rel="noopener">PonyDebugger</a></td>
-<td>由 Square 公司推出的一款优秀的 iOS 应用网络调试工具, 用户可以实时看到应用程序的网络请求, 也可以对 iOS 应用程序的核心数据栈进行远程调试</td>
-</tr>
-<tr>
-<td>33. <a href="https://github.com/jverdi/JVFloatLabeledTextField" target="_blank" rel="noopener">JVFloatLabeledTextField</a></td>
-<td>作者是 Thumb Labs 的联合创始人, JVFloatLabeledTextField 是 UITextField 的子类, 主要实现输入框标签浮动效果, 创作灵感来自 Dribbble, 已出现多个移植版本</td>
-</tr>
-<tr>
-<td>34. <a href="https://github.com/CEWendel/SWTableViewCell" target="_blank" rel="noopener">SWTableViewCell</a></td>
-<td>UITableViewCell 的子类, 实现了左右滑动显示信息视图并调出按钮</td>
-</tr>
-<tr>
-<td>35. <a href="https://github.com/levey/AwesomeMenu" target="_blank" rel="noopener">AwesomeMenu</a></td>
-<td>作者是一位中国人, 该项目主要是使用 CoreAnimation 还原了 Path menu 的动画效果</td>
-</tr>
-<tr>
-<td>36. <a href="https://github.com/tonymillion/Reachability" target="_blank" rel="noopener">Reachability</a></td>
-<td>Reachablity 是用于检测 iOS 设备网络环境的库</td>
-</tr>
-<tr>
-<td>37. <a href="https://github.com/onevcat/VVDocumenter-Xcode" target="_blank" rel="noopener">VVDocumenter-Xcode</a></td>
-<td>作者是王巍国内著名的 iOS 开发者, 人称喵神, 目前在日本 LINE 公司工作, 该项目帮助开发者轻松的生成注释文档, 节省了不少工作量, 赞</td>
-</tr>
-<tr>
-<td>38. <a href="https://github.com/google/physical-web" target="_blank" rel="noopener">The Physical Web</a></td>
-<td>由 Chrome 团队主导的一个项目, 意在用 URL 连接世界, 方便用户接受数据, 目前尚处在实验阶段</td>
-</tr>
-<tr>
-<td>39. <a href="https://github.com/samuelclay/NewsBlur" target="_blank" rel="noopener">NewsBlur</a></td>
-<td>作者独自一个人 Samuel Clay 做出来的一款名为 NewsBlur 的新闻阅读器, 很多人都称其为 Google Reader 的替代品, 这是它的源码</td>
-</tr>
-<tr>
-<td>40. <a href="https://github.com/cocos2d/cocos2d-spritebuilder" target="_blank" rel="noopener">Cocos2D-SpriteBuilder</a></td>
-<td>一个可用于在 iOS, Mac 和 Android 上制作 2D 游戏或其它图形/交互应用的框架, 之前的项目名称为 Cocos Swift,  目前该项目在 GitHub 上更新较为频繁</td>
-</tr>
-<tr>
-<td>41. <a href="https://github.com/TTTAttributedLabel/TTTAttributedLabel" target="_blank" rel="noopener">TTTAttributedLabel</a></td>
-<td>UILabel 的替代品, 使 iOS 上的 Label 功能更加丰富, 可支持链接植入等功能</td>
-</tr>
-<tr>
-<td>42. <a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="noopener">CocoaAsyncSocket</a></td>
-<td>一个功能强大、简单易用的异步 socket 通讯类库, 支持 TCP 和 UDP 协议, 可用于 Mac 和 iOS 设备上, 作者 Robbie Hanson 是 Deusty 的首席软件工程师</td>
-</tr>
-<tr>
-<td>43. <a href="https://github.com/devinross/tapkulibrary" target="_blank" rel="noopener">TapkuLibrary</a></td>
-<td>作者是 Devin Ross, 这是在 iOS 上一款功能强大的 UI 效果类库, 可以实现多种酷炫的效果, 目前仍在更新中</td>
-</tr>
-<tr>
-<td>44. <a href="https://github.com/CanvasPod/Canvas" target="_blank" rel="noopener">Canvas</a></td>
-<td>无需编码实现牛逼的动画效果的库, 连设计师都可以快速上手</td>
-</tr>
-<tr>
-<td>45. <a href="https://github.com/square/SocketRocket" target="_blank" rel="noopener">SocketRocket</a></td>
-<td>Square 公司开源的一个 WebSocket 客户端, 稳定并且易用, 做实时应用常会用到, 受广大开发者喜爱</td>
-</tr>
-<tr>
-<td>46. <a href="https://github.com/ECSlidingViewController/ECSlidingViewController" target="_blank" rel="noopener">ECSlidingViewController</a></td>
-<td>一个视图控制器容器, 将子视图处理成两层, 通过滑动来处理层的切换, 创作灵感来自 Facebook 和 Path的 App, 作者是 Cleveland 的员工</td>
-</tr>
-<tr>
-<td>47. <a href="https://github.com/stig/json-framework" target="_blank" rel="noopener">Json Framework</a></td>
-<td>用于解析 JSON 数据的一个框架, 但是在 iOS5 以上版本大多数人都选择使用 NSJSONSerialization 来解析 JSON, 该项目现在在 GitHub 上也几乎没怎么更新了</td>
-</tr>
-<tr>
-<td>48. <a href="https://github.com/facebook/Tweaks" target="_blank" rel="noopener">Tweaks</a></td>
-<td>Facebook 开源的一款工具, 旨在帮助 iOS 开发者更快的迭代应用, 方便用户动态的调整参数, 是的, Paper 这个项目也用到了</td>
-</tr>
-<tr>
-<td>49. <a href="https://github.com/realm/realm-cocoa" target="_blank" rel="noopener">realm-cocoa</a></td>
-<td>Realm-Cocoa 是 Realm 公司推出一款移动端数据库, 可以运行在手机、平板和可穿戴设备之上, 其目标是取代 CoreData 和 SQLite 数据库</td>
-</tr>
-<tr>
-<td>50. <a href="https://github.com/zwaldowski/BlocksKit" target="_blank" rel="noopener">BlocksKit</a></td>
-<td>一个开源的与 Cocoa 紧密集合的基础性框架</td>
-</tr>
-<tr>
-<td>51. <a href="https://github.com/arashpayan/appirater" target="_blank" rel="noopener">Appirater</a></td>
-<td>一款用于提醒用户给你的 App 打分的工具</td>
-</tr>
-<tr>
-<td>52. <a href="https://github.com/kif-framework/KIF" target="_blank" rel="noopener">KIF</a></td>
-<td>Square 出品的一个开源的用户界面测试框架, 极大的简化了 iOS 开发者的 UI 测试流程</td>
-</tr>
-<tr>
-<td>53. <a href="https://github.com/slackhq/SlackTextViewController" target="_blank" rel="noopener">SlackTextViewController</a></td>
-<td>Slack 推出的一款具有文字输入框高度自适应, 自动输入, 复制单元格内容等功能的解决方案</td>
-</tr>
-<tr>
-<td>54. <a href="https://github.com/IFTTT/JazzHands" target="_blank" rel="noopener">JazzHands</a></td>
-<td>IFTTT 开源的一个简单易用的关键帧基础动画框架, 可通过手势、scroll views, KVO, ReactiveCocoa 等方式来控制动画</td>
-</tr>
-<tr>
-<td>55. <a href="https://github.com/BoltsFramework/Bolts-iOS" target="_blank" rel="noopener">Bolts-iOS</a></td>
-<td>Bolts 是一个 Parse 和 Facebook 在内部使用的底层库, 方便移动开发</td>
-</tr>
-<tr>
-<td>56. <a href="https://github.com/eczarny/spectacle" target="_blank" rel="noopener">Spectacle</a></td>
-<td>一款易用的 OS X 窗口分屏操作快捷键工具, 这是其源代码</td>
-</tr>
-<tr>
-<td>57. <a href="https://github.com/tombenner/nui" target="_blank" rel="noopener">nui</a></td>
-<td>方便样式化 iOS 应用中的 UI 元素, 可在短时间内样式化整个应用, 类 CSS 原理</td>
-</tr>
-<tr>
-<td>58. <a href="https://github.com/Induction/Induction" target="_blank" rel="noopener">Induction</a></td>
-<td>Induction 是一款用于理解数据关系的管理工具, 这是其程序代码</td>
-</tr>
-<tr>
-<td>59. <a href="https://github.com/icanzilb/JSONModel" target="_blank" rel="noopener">JSONModel</a></td>
-<td>一个能迅速解析服务器返回的 Json 数据的库, 方便数据的类型转换</td>
-</tr>
-<tr>
-<td>60. <a href="https://github.com/Cocoanetics/DTCoreText" target="_blank" rel="noopener">DTCoreText</a></td>
-<td>一个开源的 iOS 富文本组件, 它可以解析 HTML 与 CSS 并最终用 CoreText 绘制出来, 通常用于在一些需要显示富文本的场景下代替低性能的 UIWebView</td>
-</tr>
-<tr>
-<td>61. <a href="https://github.com/schneiderandre/popping" target="_blank" rel="noopener">Popping</a></td>
-<td>基于 Facebook Pop 引擎的 iOS 动画库, 集合了很多动画效果</td>
-</tr>
-<tr>
-<td>62. <a href="https://github.com/KrauseFx/TSMessages" target="_blank" rel="noopener">TSMessages</a></td>
-<td>一个用来弹出显示警告和通知的轻量级库, 样式丰富, 简单易用</td>
-</tr>
-<tr>
-<td>63. <a href="https://github.com/facebook/KVOController" target="_blank" rel="noopener">KVOController</a></td>
-<td>一个简单安全的 KVO(Key-value Observing, 键-值 观察)工具, 提供简单方便、线程安全的API, Facebook 的开源项目之一</td>
-</tr>
-<tr>
-<td>64. <a href="https://github.com/mwaterfall/MWPhotoBrowser" target="_blank" rel="noopener">MWPhotoBrowser</a></td>
-<td>一款简单的 iOS 照片浏览控件</td>
-</tr>
-<tr>
-<td>65. <a href="https://github.com/mutualmobile/MMDrawerController" target="_blank" rel="noopener">MMDrawerController</a></td>
-<td>一个轻量级, 易于使用的侧边抽屉导航 iOS 控件</td>
-</tr>
-<tr>
-<td>66. <a href="https://github.com/escoz/QuickDialog" target="_blank" rel="noopener">QuickDialog</a></td>
-<td>用于快速创建复杂的 iOS 表单, 自定义了 UITableViewCell, TableView 的样式</td>
-</tr>
-<tr>
-<td>67. <a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="noopener">SVPullToRefresh</a></td>
-<td>一款只需一行代码便可集成上拉刷新和下拉加载的组件</td>
-</tr>
-<tr>
-<td>68. <a href="https://github.com/nothingmagical/cheddar-ios" target="_blank" rel="noopener">cheddar-ios</a></td>
-<td>Cheddar 是一款简单易用的日程管理软件, 这是其早期版本的开源代码, 该项目已停止维护</td>
-</tr>
-<tr>
-<td>69. <a href="https://github.com/XVimProject/XVim" target="_blank" rel="noopener">XVim</a></td>
-<td>一款在 Xcode 上实现了 Vim 功能的插件</td>
-</tr>
-<tr>
-<td>70. <a href="https://github.com/enormego/EGOTableViewPullRefresh" target="_blank" rel="noopener">EGOTableViewPullRefresh</a></td>
-<td>一款提供下拉刷新的控件, 最后更新时间是一年前</td>
-</tr>
-<tr>
-<td>71. <a href="https://github.com/gimenete/iOS-boilerplate" target="_blank" rel="noopener">iOS-boilerplate</a></td>
-<td>iOS 应用程序的基础模板, 使用该模板可以省掉许多项目初始编码的工作, 内置非常多丰富的功能, 现已经停止维护</td>
-</tr>
-<tr>
-<td>72. <a href="https://github.com/gotosleep/JASidePanels" target="_blank" rel="noopener">JASidePanels</a></td>
-<td>一个 UIViewController 容器, 灵感来自 Facebook 和 Path 2.0 应用的菜单, 实现了左右侧滑的操作</td>
-</tr>
-<tr>
-<td>73. <a href="https://github.com/mattt/FormatterKit" target="_blank" rel="noopener">FormatterKit</a></td>
-<td>收集了很多构思优秀的 NSFormatter 子类</td>
-</tr>
-<tr>
-<td>74. <a href="https://github.com/erichoracek/MSDynamicsDrawerViewController" target="_blank" rel="noopener">MSDynamicsDrawerViewController</a></td>
-<td>实现了具有动态弹性效果的抽屉式侧边导航栏, 效果丰富, 可定制性强</td>
-</tr>
-<tr>
-<td>75. <a href="https://github.com/boctor/idev-recipes" target="_blank" rel="noopener">idev-recipes</a></td>
-<td>iDevRecipes 博客的代码, 演示如何实现一些有趣的控件, 该项目在两年前(2013)停止了更新</td>
-</tr>
-<tr>
-<td>76. <a href="https://github.com/robbiehanson/XMPPFramework" target="_blank" rel="noopener">XMPPFramework</a></td>
-<td>一个基于 RFC-3920 实现, 支持多线程和线程保护, 同时通用于所有的 iOS 和 Mac OS 开发设备的通信框架.</td>
-</tr>
-<tr>
-<td>77. <a href="https://github.com/MacGapProject/MacGap1" target="_blank" rel="noopener">MacGap1</a></td>
-<td>一款可以将 HTML/CSS/JS 网络应用打包成原生 Mac App 的工具</td>
-</tr>
-<tr>
-<td>78. <a href="https://github.com/nicklockwood/FXBlurView" target="_blank" rel="noopener">FXBlurView</a></td>
-<td>iOS 模糊背景类库, 可以方便的根据底层显示的状态生成模糊效果</td>
-</tr>
-<tr>
-<td>79. <a href="https://github.com/shu223/iOS7-Sampler" target="_blank" rel="noopener">iOS7-Sampler</a></td>
-<td>整合演示了多个具有 iOS7 新特性的的项目, 提供了非常多的例子参考</td>
-</tr>
-<tr>
-<td>80. <a href="https://github.com/mxcl/PromiseKit" target="_blank" rel="noopener">PromiseKit</a></td>
-<td>提供强大的 iOS 开发异步功能, 是 Promises 的实现, 受到广大开发者的追捧</td>
-</tr>
-<tr>
-<td>81. <a href="https://github.com/facebook/origami" target="_blank" rel="noopener">Origami</a></td>
-<td>此为 Facebook 推出的 Quartz Composer 的一个开源插件, 由其设计团队花费了 9 个月打造而成, 目的是为方便设计师快速构建原型, 以零代码完成复杂动画的合成和测试, 堪称神器</td>
-</tr>
-<tr>
-<td>82. <a href="https://github.com/fpillet/NSLogger" target="_blank" rel="noopener">NSLogger</a></td>
-<td>一款强大的日志分析工具, 具有大窗口查看 Log, 自定义日志等级等功能</td>
-</tr>
-<tr>
-<td>83. <a href="https://github.com/ksuther/KSImageNamed-Xcode" target="_blank" rel="noopener">KSImageNamed-Xcode</a></td>
-<td>一款对 UIImage 的 imageNamed 提供自动补全功能的插件, 非常方便</td>
-</tr>
-<tr>
-<td>84. <a href="https://github.com/smileyborg/PureLayout" target="_blank" rel="noopener">PureLayout</a></td>
-<td>一个简单却强大的 AutoLayout API 库, 兼容了 Objective-C 和 Swift, 扩展了 UIView/NSView, NSArray, 和 NSLayoutConstraint</td>
-</tr>
-<tr>
-<td>85. <a href="https://github.com/tomaz/appledoc" target="_blank" rel="noopener">AppleDoc</a></td>
-<td>一款 Objective-C 文档生成工具, 生成的文档风格保持与 Apple 官方的一致, 极大的方便了 Xcode 识别自己写的 API 文档, 安装也是十分的简单</td>
-</tr>
-<tr>
-<td>86. <a href="https://github.com/gnachman/iTerm2" target="_blank" rel="noopener">iTerm2</a></td>
-<td>iTerm2 被不少程序员称赞为 Mac 下最好用的终端, 这是其源代码, 配合 oh-my-zsh 使用效果更佳</td>
-</tr>
-<tr>
-<td>87. <a href="https://github.com/kiwi-bdd/Kiwi" target="_blank" rel="noopener">Kiwi</a></td>
-<td>一个行为驱动开发测试框架, 适用于 iOS 平台, 旨在为开发者提供一个简单配置便可使用的 BDD 库</td>
-</tr>
-<tr>
-<td>88. <a href="https://github.com/alloy/terminal-notifier" target="_blank" rel="noopener">terminal-notifier</a></td>
-<td>一款命令行工具, 用来给 Mac OS X 用户发送通知</td>
-</tr>
-<tr>
-<td>89. <a href="https://github.com/uranusjr/macdown" target="_blank" rel="noopener">MacDown</a></td>
-<td>Mac OS X 下的一款开源的 Markdown 编辑器, 创意来自与 Mou, 使用 brew cask 即可完成安装</td>
-</tr>
-<tr>
-<td>90. <a href="https://github.com/twitter/twui" target="_blank" rel="noopener">TwUI</a></td>
-<td>Twitter 开源的一个支持硬件加速的 Mac 的 UI 框架, 最后一次的更新时间是在 3 年前(2012)</td>
-</tr>
-<tr>
-<td>91. <a href="https://github.com/honcheng/PaperFold-for-iOS" target="_blank" rel="noopener">PaperFold for iOS</a></td>
-<td>实现了类似折纸效果的视图切换, 可从不同方向进行切换, 该项目已经许久未更新</td>
-</tr>
-<tr>
-<td>92. <a href="https://github.com/vfr/Reader" target="_blank" rel="noopener">Reader</a></td>
-<td>一款开源的 iOS PDF 阅读器, 附带书签, 列纲要等功能</td>
-</tr>
-<tr>
-<td>93. <a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a></td>
-<td>一个方便使用 Objective-C 与 JavaScript 进行通信的第三方库, 支持消息发送, 接收, 消息处理器的注册与调用以及设置消息处理的回调</td>
-</tr>
-<tr>
-<td>94. <a href="https://github.com/shu223/iOS8-Sampler" target="_blank" rel="noopener">iOS8-Sampler</a></td>
-<td>iOSX-Sampler 系列之一, 整合演示了多个具有 iOS8 新特性的的项目, 提供了非常多的例子参考</td>
-</tr>
-<tr>
-<td>95. <a href="https://github.com/robbiehanson/CocoaHTTPServer" target="_blank" rel="noopener">CocoaHTTPServer</a></td>
-<td>一个用于 Mac OS X 或 iOS 应用的轻量级、可嵌入的HTTP 服务器框架, 方便开发者在应用中嵌入一个 HTTP 服务器</td>
-</tr>
-<tr>
-<td>96. <a href="https://github.com/rsms/kod" target="_blank" rel="noopener">Kod</a></td>
-<td>Mac OS X 上一款专为程序员打造的编辑器, 这是其开源代码, 可惜的是作者在 2011 年停止了维护</td>
-</tr>
-<tr>
-<td>97. <a href="https://github.com/michaeltyson/TPKeyboardAvoiding" target="_blank" rel="noopener">TPKeyboardAvoiding</a></td>
-<td>下拉键盘在 iOS 移动文本字段的通用解决方案, 能够自动处理键盘弹出后出现遮挡到文本输入框的问题</td>
-</tr>
-<tr>
-<td>98. <a href="https://github.com/MugunthKumar/MKNetworkKit" target="_blank" rel="noopener">MKNetworkKit</a></td>
-<td>一个轻量级网络请求框架, 完全基于 ARC, 仅有两个类, 具有自主操作多个网络请求, 更加准确的显示网络活动指标等优点</td>
-</tr>
-<tr>
-<td>99. <a href="https://github.com/pkluz/PKRevealController" target="_blank" rel="noopener">PKRevealController</a></td>
-<td>一个 iOS 平台上的视图控制器集合, 通过展现多个视图控制器来进行控制器之间的切换. 设置简单, 高度灵活</td>
-</tr>
-<tr>
-<td>00. <a href="https://github.com/AlanQuatermain/AQGridView" target="_blank" rel="noopener">AQGridView</a></td>
-<td>一个命令行工具, 通过项目里的 <code>.xcdatamodel</code> 文件, 可以为每个 entity 生成两个类, 方便 CoreData 的使用</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1450,1155 +719,11 @@ Hello, Justin
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/11/Android-ack-解决/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/11/Android-ack-解决/" itemprop="url">Android ack 解决</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T09:14:27+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  400
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>当adb出现如下异常时：可以考虑如下做法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\zhaohao1&gt;adb remount</span><br><span class="line">* daemon not running. starting it now on port 5037 *</span><br><span class="line">ADB server didn&apos;t ACK</span><br><span class="line">* failed to start daemon *</span><br><span class="line">error: cannot connect to daemon</span><br></pre></td></tr></table></figure></p>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>方法一：<br>（1）查看任务管理器，关闭所有adb.exe,或者运行-&gt;cmd，在命令窗口输入adb kill-server<br>（2）重启eclipse即可<br>方法二, ：<br>如果方法一不行，就查看下自己电脑是否启动了如：91手机助手，360手机 豌豆荚等先把他关闭，重新连接试试，再不行就卸载这些软件应该可以解决。因为这些软件可能占用了android手机跟eclipse连接启动adb的端口<br> 方法三：<br>5037端口被占用的话，也会出现如下提示……<br>于是乎，真像是找到了救命稻草一般，先在命令行中输入如下指令，查看5037这个端口现在是被谁占用了：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -a -o <span class="number">5037</span></span><br></pre></td></tr></table></figure></p>
-<p>然后得到如下的一个结果，还真被占用了哦：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TCP    127.0.0.1:5037         USER-20161115XS:0      LISTENING       7608</span><br><span class="line">TCP    127.0.0.1:5037         USER-20161115XS:64426  CLOSE_WAIT      7608</span><br></pre></td></tr></table></figure></p>
-<pre><code>C:\Users\zhaohao1&gt;netstat -ano | findstr &quot;5037&quot;
- TCP    127.0.0.1:5037         0.0.0.0:0              LISTENING       4436
- TCP    127.0.0.1:5037         127.0.0.1:49343        TIME_WAIT       0
-</code></pre><p>那这个4792在我机器上，到底是个什么进程呢，好的，接着输入以下命令，把真凶找出来：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist /fi <span class="string">"pid eq 4792"</span></span><br></pre></td></tr></table></figure></p>
-<p>然后，额……我郁闷了……是存在adb进程占用端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">映像名称                       PID 会话名              会话#       内存使用</span><br><span class="line">========================= ======== ================</span><br><span class="line">adb.exe                       7608 Console                    1      9,740 K</span><br></pre></td></tr></table></figure></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/07/hello-world/" itemprop="url">Hello Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T01:19:08+08:00">
-                2018-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  78
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/07/Android-拉起通知设置界面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/07/Android-拉起通知设置界面/" itemprop="url">Android 拉起通知设置界面</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T01:19:08+08:00">
-                2018-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  272
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>4.4以下并没有提过从app跳转到应用通知设置页面的Action，可考虑跳转到应用详情页面,下面是直接跳转到应用通知设置的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">if (android.os.Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">                   Intent intent = new Intent();</span><br><span class="line">                   intent.setAction(&quot;android.settings.APP_NOTIFICATION_SETTINGS&quot;);</span><br><span class="line">                   intent.putExtra(&quot;app_package&quot;, getActivity().getPackageName());</span><br><span class="line">                   intent.putExtra(&quot;app_uid&quot;, getActivity().getApplicationInfo().uid);</span><br><span class="line">                   startActivity(intent);</span><br><span class="line">               &#125; else if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">                   Intent intent = new Intent();</span><br><span class="line">                   intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);</span><br><span class="line">                   intent.addCategory(Intent.CATEGORY_DEFAULT);</span><br><span class="line">                   intent.setData(Uri.parse(&quot;package:&quot; + getActivity().getPackageName()));</span><br><span class="line">                   startActivity(intent);</span><br><span class="line">               &#125;</span><br></pre></td></tr></table></figure></p>
-<p>跳转到应用详情页面的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Intent localIntent = new Intent();</span><br><span class="line">              localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">              if (Build.VERSION.SDK_INT &gt;= 9) &#123;</span><br><span class="line">                  localIntent.setAction(&quot;android.settings.APPLICATION_DETAILS_SETTINGS&quot;);</span><br><span class="line">                  localIntent.setData(Uri.fromParts(&quot;package&quot;, getActivity().getPackageName(), null));</span><br><span class="line">              &#125; else if (Build.VERSION.SDK_INT &lt;= 8) &#123;</span><br><span class="line">                  localIntent.setAction(Intent.ACTION_VIEW);</span><br><span class="line">                  localIntent.setClassName(&quot;com.android.settings&quot;, &quot;com.android.settings.InstalledAppDetails&quot;);</span><br><span class="line">                  localIntent.putExtra(&quot;com.android.settings.ApplicationPkgName&quot;, getActivity().getPackageName());</span><br><span class="line">              &#125;</span><br><span class="line">              startActivity(localIntent);</span><br></pre></td></tr></table></figure></p>
-<p>对于检测app是否开启通知，同样是针对4.4以上的系统才有效:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NotificationManagerCompat manager = NotificationManagerCompat.from(App.getInstance().getContext());</span><br><span class="line">boolean isOpened = manager.areNotificationsEnabled();</span><br></pre></td></tr></table></figure></p>
-<p>4.4以下调用该方法并不会出错，只是全部返回true,默认开启状态</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/05/makedown-语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/05/makedown-语法/" itemprop="url">makedown 语法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T23:02:47+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,242
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Markdown-语法，参考CMD-Markdown"><a href="#Markdown-语法，参考CMD-Markdown" class="headerlink" title="Markdown 语法，参考CMD Markdown"></a>Markdown 语法，参考CMD Markdown</h1><hr>
-<p>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
-<blockquote>
-<ul>
-<li>整理知识，学习笔记</li>
-<li>发布日记，杂文，所见所想</li>
-<li>撰写发布技术文稿（代码支持）</li>
-<li>撰写发布学术论文（LaTeX 公式支持）</li>
-</ul>
-</blockquote>
-<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
-<p>除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：</p>
-<h3 id="Windows-Mac-Linux-全平台客户端"><a href="#Windows-Mac-Linux-全平台客户端" class="headerlink" title="Windows/Mac/Linux 全平台客户端"></a><a href="https://www.zybuluo.com/cmd/" target="_blank" rel="noopener">Windows/Mac/Linux 全平台客户端</a></h3><blockquote>
-<p>请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> <strong>新文稿</strong> 或者使用快捷键 <code>Ctrl+Alt+N</code>。</p>
-</blockquote>
-<hr>
-<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown"></a>什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，<strong>粗体</strong> 或者 <em>斜体</em> 某些文字，更棒的是，它还可以</p>
-<h3 id="1-制作一份待办事宜-Todo-列表"><a href="#1-制作一份待办事宜-Todo-列表" class="headerlink" title="1. 制作一份待办事宜 Todo 列表"></a>1. 制作一份待办事宜 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表" target="_blank" rel="noopener">Todo 列表</a></h3><ul>
-<li style="list-style: none"><input type="checkbox"> 支持以 PDF 格式导出文稿</li>
-<li style="list-style: none"><input type="checkbox"> 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
-<li style="list-style: none"><input type="checkbox" checked> 新增 Todo 列表功能</li>
-<li style="list-style: none"><input type="checkbox" checked> 修复 LaTex 公式渲染问题</li>
-<li style="list-style: none"><input type="checkbox" checked> 新增 LaTex 公式编号功能</li>
-</ul>
-<h3 id="2-书写一个质能守恒公式-LaTeX"><a href="#2-书写一个质能守恒公式-LaTeX" class="headerlink" title="2. 书写一个质能守恒公式[^LaTeX]"></a>2. 书写一个质能守恒公式[^LaTeX]</h3><p>$$E=mc^2$$</p>
-<h3 id="3-高亮一段代码-code"><a href="#3-高亮一段代码-code" class="headerlink" title="3. 高亮一段代码[^code]"></a>3. 高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-高效绘制-流程图"><a href="#4-高效绘制-流程图" class="headerlink" title="4. 高效绘制 流程图"></a>4. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-流程图" target="_blank" rel="noopener">流程图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-<h3 id="5-高效绘制-序列图"><a href="#5-高效绘制-序列图" class="headerlink" title="5. 高效绘制 序列图"></a>5. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-序列图" target="_blank" rel="noopener">序列图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
-<h3 id="6-高效绘制-甘特图"><a href="#6-高效绘制-甘特图" class="headerlink" title="6. 高效绘制 甘特图"></a>6. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-甘特图" target="_blank" rel="noopener">甘特图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">title 项目开发流程</span><br><span class="line">section 项目确定</span><br><span class="line">    需求分析       :a1, 2016-06-22, 3d</span><br><span class="line">    可行性报告     :after a1, 5d</span><br><span class="line">    概念验证       : 5d</span><br><span class="line">section 项目实施</span><br><span class="line">    概要设计      :2016-07-05  , 5d</span><br><span class="line">    详细设计      :2016-07-08, 10d</span><br><span class="line">    编码          :2016-07-15, 10d</span><br><span class="line">    测试          :2016-07-22, 5d</span><br><span class="line">section 发布验收</span><br><span class="line">    发布: 2d</span><br><span class="line">    验收: 3d</span><br></pre></td></tr></table></figure>
-<h3 id="7-绘制表格"><a href="#7-绘制表格" class="headerlink" title="7. 绘制表格"></a>7. 绘制表格</h3><table>
-<thead>
-<tr>
-<th>项目</th>
-<th style="text-align:right">价格</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>计算机</td>
-<td style="text-align:right">\$1600</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td>手机</td>
-<td style="text-align:right">\$12</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td>管线</td>
-<td style="text-align:right">\$1</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-更详细语法说明"><a href="#8-更详细语法说明" class="headerlink" title="8. 更详细语法说明"></a>8. 更详细语法说明</h3><p>想要查看更详细的语法说明，可以参考我们准备的 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="noopener">Cmd Markdown 简明语法手册</a>，进阶用户可以参考 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册" target="_blank" rel="noopener">Cmd Markdown 高阶语法手册</a> 了解更多高级功能。</p>
-<p>总而言之，不同于其它 <em>所见即所得</em> 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。<strong>Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。</strong> 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。</p>
-<hr>
-<h2 id="什么是-Cmd-Markdown"><a href="#什么是-Cmd-Markdown" class="headerlink" title="什么是 Cmd Markdown"></a>什么是 Cmd Markdown</h2><p>您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 <strong>编辑/发布/阅读</strong> Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。</p>
-<h3 id="1-实时同步预览"><a href="#1-实时同步预览" class="headerlink" title="1. 实时同步预览"></a>1. 实时同步预览</h3><p>我们将 Cmd Markdown 的主界面一分为二，左边为<strong>编辑区</strong>，右边为<strong>预览区</strong>，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！</p>
-<h3 id="2-编辑工具栏"><a href="#2-编辑工具栏" class="headerlink" title="2. 编辑工具栏"></a>2. 编辑工具栏</h3><p>也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 <strong>编辑区</strong> 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。</p>
-<p><img src="https://www.zybuluo.com/static/img/toolbar-editor.png" alt="tool-editor"></p>
-<h3 id="3-编辑模式"><a href="#3-编辑模式" class="headerlink" title="3. 编辑模式"></a>3. 编辑模式</h3><p>完全心无旁骛的方式编辑文字：点击 <strong>编辑工具栏</strong> 最右侧的拉伸按钮或者按下 <code>Ctrl + M</code>，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！</p>
-<h3 id="4-实时的云端文稿"><a href="#4-实时的云端文稿" class="headerlink" title="4. 实时的云端文稿"></a>4. 实时的云端文稿</h3><p>为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 <strong>编辑工具栏</strong> 的最右侧提示 <code>已保存</code> 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。</p>
-<h3 id="5-离线模式"><a href="#5-离线模式" class="headerlink" title="5. 离线模式"></a>5. 离线模式</h3><p>在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。</p>
-<h3 id="6-管理工具栏"><a href="#6-管理工具栏" class="headerlink" title="6. 管理工具栏"></a>6. 管理工具栏</h3><p>为了便于管理您的文稿，在 <strong>预览区</strong> 的顶部放置了如下所示的 <strong>管理工具栏</strong>：</p>
-<p><img src="https://www.zybuluo.com/static/img/toolbar-manager.jpg" alt="tool-manager"></p>
-<p>通过管理工具栏可以：</p>
-<p><i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享<br><i class="icon-file"></i> 新建：开始撰写一篇新的文稿<br><i class="icon-trash"></i> 删除：删除当前的文稿<br><i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地<br><i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作<br><i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式</p>
-<h3 id="7-阅读工具栏"><a href="#7-阅读工具栏" class="headerlink" title="7. 阅读工具栏"></a>7. 阅读工具栏</h3><p><img src="https://www.zybuluo.com/static/img/toolbar-reader.jpg" alt="tool-manager"></p>
-<p>通过 <strong>预览区</strong> 右上角的 <strong>阅读工具栏</strong>，可以查看当前文稿的目录并增强阅读体验。</p>
-<p>工具栏上的五个图标依次为：</p>
-<p><i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落<br><i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置<br><i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 <strong>黑色主题</strong>，超炫！<br><i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验<br><i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境</p>
-<h3 id="8-阅读模式"><a href="#8-阅读模式" class="headerlink" title="8. 阅读模式"></a>8. 阅读模式</h3><p>在 <strong>阅读工具栏</strong> 点击 <i class="icon-desktop"></i> 或者按下 <code>Ctrl+Alt+M</code> 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。</p>
-<h3 id="9-标签、分类和搜索"><a href="#9-标签、分类和搜索" class="headerlink" title="9. 标签、分类和搜索"></a>9. 标签、分类和搜索</h3><p>在编辑区任意行首位置输入以下格式的文字可以标签当前文档：</p>
-<p>标签： 未分类</p>
-<p>标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：</p>
-<p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
-<h3 id="10-文稿发布和分享"><a href="#10-文稿发布和分享" class="headerlink" title="10. 文稿发布和分享"></a>10. 文稿发布和分享</h3><p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
-<hr>
-<p>再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！</p>
-<p>作者 <a href="http://weibo.com/ghosert" target="_blank" rel="noopener">@ghosert</a><br>2016 年 07月 07日    </p>
-<p>[^LaTeX]: 支持 <strong>LaTeX</strong> 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax</a> 参考更多使用方法。</p>
-<p>[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，<strong>四十一</strong>种主流编程语言。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/05/hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/05/hexo/" itemprop="url">Hexo 入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T20:29:15+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  349
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="hexo的下载和安装"><a href="#hexo的下载和安装" class="headerlink" title="hexo的下载和安装"></a>hexo的下载和安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">常用命令：</span><br><span class="line">hexo new post “博客名”  #创建</span><br><span class="line">hexo d -g  #发布</span><br><span class="line">hexo s --debug  #测试界面</span><br><span class="line"></span><br><span class="line">hexo new "postName" #新建文章</span><br><span class="line">hexo new page "pageName" #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br><span class="line"></span><br><span class="line">清除缓存的方法：</span><br><span class="line">- 执行命令：hexo clean</span><br><span class="line">- 然后可以生成静态博客并在本地预览：hexo g &amp; hexo s</span><br></pre></td></tr></table></figure>
-<p>1、利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Bash输入命令：npm install -g hexo<br>2、创建文件夹（我的是在E盘创建的Hexo），然后在Hexo文件下，右键运行Git Bash，输入命令：hexo init在_config.yml,进行基础配置</p>
-<p><strong> 部分报错 </strong><br>1.找不到git部署 ERROR Deployer not found: git<br>解决方法<br>    npm install hexo-deployer-git –save<br>3.部署类型设置git<br>hexo 3.0 部署类型不再是github，_config.yml 中修改</p>
-<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-http-hexo-io-docs-deployment-html"><a href="#Docs-http-hexo-io-docs-deployment-html" class="headerlink" title="Docs: http://hexo.io/docs/deployment.html"></a>Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="noopener">http://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repository: git@<strong><em>.github.com:</em></strong>/***.github.io.git<br>  branch: master</p>
-<ol start="4">
-<li>xcodebuild<br>xcode-select: error: tool ‘xcodebuild’ requires Xcode, but active developer directory ‘/Library/Developer/CommandLineTools’ is a command line tools instance<br>npm install bcrypt</li>
-<li>RSS不显示<br>安装RSS插件<br>npm install hexo-generator-feed –save<br>开启RSS功能<br>编辑hexo/_config.yml，添加如下代码：</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/05/第一次使用hexo部署博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/05/第一次使用hexo部署博客/" itemprop="url">第一次使用hexo部署博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T19:48:13+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  49
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>这是第一次使用hexo部署博客，后续将开始自发的写些文章，算是整理下之前一直没有做的事情吧~~~</p>
-</blockquote>
-<p>Mark： 坚持，自律，严于律己</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -2606,6 +731,17 @@ Hello, Justin
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -2626,8 +762,17 @@ Hello, Justin
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2719,6 +864,22 @@ Hello, Justin
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第-16-章-反射（Reflection）"><span class="nav-number">1.</span> <span class="nav-text">第 16 章 反射（Reflection）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#16-1-类别载入与检视"><span class="nav-number">1.1.</span> <span class="nav-text">16.1 类别载入与检视</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-1-简介-Class-与类别载入"><span class="nav-number">1.1.1.</span> <span class="nav-text">16.1.1 简介 Class 与类别载入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-1-ClassDemo-java"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">范例 16.1  ClassDemo.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-2-TestClass-java"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">范例 16.2  TestClass.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-3-LoadClassTest-java"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">范例 16.3  LoadClassTest.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-4-ClassDemo2-java"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">范例 16.4  ClassDemo2.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-2-使用-Class-forName-载入类别"><span class="nav-number">1.1.2.</span> <span class="nav-text">16.1.2 使用 Class.forName() 载入类别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-5-ForNameDemo-java"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">范例 16.5  ForNameDemo.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-6-TestClass2-java"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">范例 16.6  TestClass2.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-7-ForNameDemoV1-java"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">范例 16.7  ForNameDemoV1.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-8-ForNameDemoV2-java"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">范例 16.8  ForNameDemoV2.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-3-从-Class-中获取信息"><span class="nav-number">1.1.3.</span> <span class="nav-text">16.1.3 从 Class 中获取信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-9-ClassInfoDemo-java"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">范例 16.9  ClassInfoDemo.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-10-SimpleClassViewer-java"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">范例 16.10  SimpleClassViewer.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-4-简介类别加载器"><span class="nav-number">1.1.4.</span> <span class="nav-text">16.1.4 简介类别加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-11-SomeClass-java"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">范例 16.11  SomeClass.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-12-ForNameDemoV3-java"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">范例 16.12  ForNameDemoV3.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-5-使用自己的-ClassLoader"><span class="nav-number">1.1.5.</span> <span class="nav-text">16.1.5 使用自己的 ClassLoader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-13-ClassLoaderDemo-java"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">范例 16.13  ClassLoaderDemo.java</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-2-使用反射生成与操作对象"><span class="nav-number">1.2.</span> <span class="nav-text">16.2 使用反射生成与操作对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-1-生成物件"><span class="nav-number">1.2.1.</span> <span class="nav-text">16.2.1 生成物件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-14-NewInstanceDemo-java"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">范例 16.14  NewInstanceDemo.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-15-Student-java"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">范例 16.15  Student.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-16-NewInstanceDemo2-java"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">范例 16.16  NewInstanceDemo2.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-2-呼叫方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">16.2.2 呼叫方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-17-InvokeMethodDemo-java"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">范例 16.17  InvokeMethodDemo.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-18-CommandUtil-java"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">范例 16.18  CommandUtil.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-19-CommandUtilDemo-java"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">范例 16.19  CommandUtilDemo.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-3-修改成员值"><span class="nav-number">1.2.3.</span> <span class="nav-text">16.2.3 修改成员值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-20-TestField-java"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">范例 16.20  TestField.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-21-AssignFieldDemo-java"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">范例 16.21  AssignFieldDemo.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-4-再看数组对象"><span class="nav-number">1.2.4.</span> <span class="nav-text">16.2.4 再看数组对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范例-16-22-ArrayDemo-java"><span class="nav-number">1.3.</span> <span class="nav-text">范例 16.22  ArrayDemo.java</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-23-NewArrayDemo-java"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">范例 16.23  NewArrayDemo.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-24-NewArrayDemo2-java"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">范例 16.24  NewArrayDemo2.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-5-Proxy-类别"><span class="nav-number">1.3.1.</span> <span class="nav-text">16.2.5 Proxy 类别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-25-IHello-java"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">范例 16.25 IHello.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-26-HelloSpeaker-java"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">范例 16.26  HelloSpeaker.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-27-LogHandler-java"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">范例 16.27  LogHandler.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范例-16-28-ProxyDemo-java"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">范例 16.28  ProxyDemo.java</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-3-接下来的主题"><span class="nav-number">1.4.</span> <span class="nav-text">16.3 接下来的主题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2871,6 +1032,10 @@ Hello, Justin
 
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -2918,6 +1083,30 @@ Hello, Justin
     
     <!-- id: window.location.pathname,  -->
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: 'Java 反射机制',
+            owner: 'quintushorace',
+            repo: 'quintushorace.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '08b98c78dc0fb4a60ff44438b7e44841198db956',
+            
+                client_id: '379b85213af6208ee40b'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
