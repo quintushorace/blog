@@ -315,7 +315,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,341
+                  1,357
                 </span>
               
 
@@ -354,16 +354,17 @@
       
         
           
-            <p><a href="https://travis-ci.org/kiruto/debug-bottle" title="Latest push build on default branch: created" target="_blank" rel="noopener"><br>  <img src="https://travis-ci.org/kiruto/debug-bottle.svg?branch=1.0.1" alt="build:created"><br></a><br><a href="https://mvnrepository.com/artifact/com.exyui.android/debug-bottle-runtime" name="status-images" title="Latest version on maven-central" target="_blank" rel="noopener"><br>  <img src="https://img.shields.io/maven-central/v/com.exyui.android/debug-bottle-runtime.svg?maxAge=2592000" alt="version:maven-central"><br></a></p>
-<h1 id="🍼Debug-Bottle"><a href="#🍼Debug-Bottle" class="headerlink" title="🍼Debug Bottle"></a>🍼Debug Bottle</h1><p>Android Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。</p>
+            <h1 id="🍼Debug-Bottle"><a href="#🍼Debug-Bottle" class="headerlink" title="🍼Debug Bottle"></a>🍼Debug Bottle</h1><ul>
+<li><a href="#Http监听">简易的HTTP请求嗅探</a><br>转自 <a href="https://github.com/kiruto/debug-bottle" target="_blank" rel="noopener">https://github.com/kiruto/debug-bottle</a></li>
+</ul>
+<hr>
+<p>Android Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。</p>
 <ul>
 <li><a href="docs/zh-CN/README.md">开发文档</a></li>
 <li><a href="CHANGELOG.md">CHANGELOG</a></li>
 <li><a href="TODO.md">TODO</a></li>
 </ul>
 <p>Demo App可在Google Play中下载:</p>
-<p><a href="https://play.google.com/store/apps/details?id=me.chunyu.dev.yuriel.kotdebugtool" target="_blank" rel="noopener"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" width="300"></a></p>
-<p><a href="screenshots/raw/introduction.gif"><img src="screenshots/introduction.gif" width="225" height="400"></a><br><a href="screenshots/raw/quick-toggles.png"><img src="screenshots/quick-toggles.png"></a><br><a href="screenshots/raw/features-2.png"><img src="screenshots/features-2.png"></a></p>
 <h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
 <li><a href="#Http监听">简易的HTTP请求嗅探</a></li>
 <li><a href="#3D化视图">3D化Activity视图</a></li>
@@ -375,19 +376,13 @@
 <li><a href="#进入一切activity并注入参数">简易创造Activity入口，及测试Runnable</a></li>
 </ul>
 <h4 id="Http监听"><a href="#Http监听" class="headerlink" title="Http监听"></a>Http监听</h4><p>通过OkHttp的拦截器监听通过App的Http请求，并记录在Debug Bottle的日志中。记录过的日志可以通过分享按钮分享给其他开发者。</p>
-<p><a href="screenshots/raw/network-sniffer-1.png"><img src="screenshots/network-sniffer-1.png"></a><br><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/network-sniffer-2.png"></a></p>
 <h4 id="3D化视图"><a href="#3D化视图" class="headerlink" title="3D化视图"></a>3D化视图</h4><p>通过设置打开“3D”功能，可以更直观地看到当前Activity的layout结构。<br>本功能支持单点手势旋转，双点手势缩放和位移。</p>
-<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/scalpel-view.png"></a><br><a href="screenshots/raw/scalpel-view.gif"><img src="screenshots/scalpel-view.gif" width="225" height="400"></a></p>
 <h4 id="Shared-Preferences编辑器"><a href="#Shared-Preferences编辑器" class="headerlink" title="Shared Preferences编辑器"></a>Shared Preferences编辑器</h4><p>通过Debug Bottle可以简单地编辑App用到的所有Shared Preferences。</p>
-<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/shared-preferences-editor-1.png"></a><br><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/shared-preferences-editor-2.png"></a></p>
 <h4 id="使用Strict-Mode"><a href="#使用Strict-Mode" class="headerlink" title="使用Strict Mode"></a>使用Strict Mode</h4><p>Debug Bottle可以在运行时启用或禁用Strict Mode。StrictMode最常用来捕捉应用程序的主线程，它将报告与线程及虚拟机相关的策略违例。一旦检测到策略违例（policy violation），你将获得警告，其包含了一个栈trace显示你的应用在何处发生违例。除了主线程，我们还可以在Handler，AsyncTask，AsyncQueryHandler，IntentService等API中使用StrictMode。更多使用方法介绍，参见<a href="https://developer.android.com/reference/android/os/StrictMode.html" target="_blank" rel="noopener">官方开发者文档</a>。</p>
 <h4 id="崩溃日志"><a href="#崩溃日志" class="headerlink" title="崩溃日志"></a>崩溃日志</h4><p>收集所有崩溃的信息，存储成日志文件。</p>
-<p><a href="screenshots/raw/crash.gif"><img src="screenshots/crash.gif" width="225" height="400"></a></p>
 <h4 id="使用Leak-Canary"><a href="#使用Leak-Canary" class="headerlink" title="使用Leak Canary"></a>使用Leak Canary</h4><p>Debug Bottle中编译进了Leak Canary，所有Leak Canary的功能都可以使用了，并且可以通过Debug Bottle来控制开关。Leak Canary的使用方法请参考<a href="https://github.com/square/leakcanary/wiki/FAQ" target="_blank" rel="noopener">官方Wiki</a>。</p>
 <h4 id="使用Block-Canary"><a href="#使用Block-Canary" class="headerlink" title="使用Block Canary"></a>使用Block Canary</h4><p>加入了支持Kotlin的Block Canary，可以监控UI线程卡死。</p>
-<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/ui-blocks.png"></a><br><a href="screenshots/raw/block-canary-demo.gif"><img src="scree1nshots/block-canary-demo.gif" width="225" height="400"></a></p>
 <h4 id="进入一切Activity并注入参数"><a href="#进入一切Activity并注入参数" class="headerlink" title="进入一切Activity并注入参数"></a>进入一切Activity并注入参数</h4><p>简单的Activity／Runnable入口。可以随心所欲进入任何一个Activity，使用任何参数，甚至可以向App中注入想要测试的Intent。</p>
-<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/all-activities.png"></a><br><a href="screenshots/raw/run-activity-with-intent.gif"><img src="screenshots/run-activity-with-intent.gif" width="225" height="400"></a></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>安装嵌入Debug Bottle的App后，你将看到初你App外的新图标🍼。点击进入Debug面板。</p>
 <h2 id="搭建方法"><a href="#搭建方法" class="headerlink" title="搭建方法"></a>搭建方法</h2><h4 id="1-加入Gradle依赖"><a href="#1-加入Gradle依赖" class="headerlink" title="1. 加入Gradle依赖"></a>1. 加入Gradle依赖</h4><p>首先在工程Gradle文件中添加snapshot源：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">"https://oss.sonatype.org/content/repositories/snapshots"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后在主模块中（Application类所在模块）加入依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.1.1'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.1.1'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.2.0+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
