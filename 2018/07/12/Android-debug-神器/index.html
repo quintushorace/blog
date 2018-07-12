@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="🍼Debug BottleAndroid Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。  开发文档 CHANGELOG TODO  Demo App可在Google Play中下载:   功能 简易的HTTP请求嗅探 3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android debug 神器">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/Android-debug-神器/index.html">
+<meta property="og:site_name" content="浩子">
+<meta property="og:description" content="🍼Debug BottleAndroid Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。  开发文档 CHANGELOG TODO  Demo App可在Google Play中下载:   功能 简易的HTTP请求嗅探 3">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://travis-ci.org/kiruto/debug-bottle.svg?branch=1.0.1">
+<meta property="og:image" content="https://img.shields.io/maven-central/v/com.exyui.android/debug-bottle-runtime.svg?maxAge=2592000">
+<meta property="og:image" content="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/introduction.gif">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/quick-toggles.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/features-2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/network-sniffer-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/network-sniffer-2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/scalpel-view.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/scalpel-view.gif">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/shared-preferences-editor-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/shared-preferences-editor-2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/crash.gif">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/ui-blocks.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/scree1nshots/block-canary-demo.gif">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/all-activities.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/12/Android-debug-神器/screenshots/run-activity-with-intent.gif">
+<meta property="og:updated_time" content="2018-07-12T06:09:16.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android debug 神器">
+<meta name="twitter:description" content="🍼Debug BottleAndroid Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。  开发文档 CHANGELOG TODO  Demo App可在Google Play中下载:   功能 简易的HTTP请求嗅探 3">
+<meta name="twitter:image" content="https://travis-ci.org/kiruto/debug-bottle.svg?branch=1.0.1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/Android-debug-神器/"/>
+
+
+
+
+
+  <title>Android debug 神器 | 浩子</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">浩子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学无止境</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/12/Android-debug-神器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Horace Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浩子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android debug 神器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T14:07:44+08:00">
+                2018-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2018/07/12/Android-debug-神器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2018/07/12/Android-debug-神器/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,341
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://travis-ci.org/kiruto/debug-bottle" title="Latest push build on default branch: created" target="_blank" rel="noopener"><br>  <img src="https://travis-ci.org/kiruto/debug-bottle.svg?branch=1.0.1" alt="build:created"><br></a><br><a href="https://mvnrepository.com/artifact/com.exyui.android/debug-bottle-runtime" name="status-images" title="Latest version on maven-central" target="_blank" rel="noopener"><br>  <img src="https://img.shields.io/maven-central/v/com.exyui.android/debug-bottle-runtime.svg?maxAge=2592000" alt="version:maven-central"><br></a></p>
+<h1 id="🍼Debug-Bottle"><a href="#🍼Debug-Bottle" class="headerlink" title="🍼Debug Bottle"></a>🍼Debug Bottle</h1><p>Android Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。</p>
+<ul>
+<li><a href="docs/zh-CN/README.md">开发文档</a></li>
+<li><a href="CHANGELOG.md">CHANGELOG</a></li>
+<li><a href="TODO.md">TODO</a></li>
+</ul>
+<p>Demo App可在Google Play中下载:</p>
+<p><a href="https://play.google.com/store/apps/details?id=me.chunyu.dev.yuriel.kotdebugtool" target="_blank" rel="noopener"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" width="300"></a></p>
+<p><a href="screenshots/raw/introduction.gif"><img src="screenshots/introduction.gif" width="225" height="400"></a><br><a href="screenshots/raw/quick-toggles.png"><img src="screenshots/quick-toggles.png"></a><br><a href="screenshots/raw/features-2.png"><img src="screenshots/features-2.png"></a></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li><a href="#Http监听">简易的HTTP请求嗅探</a></li>
+<li><a href="#3D化视图">3D化Activity视图</a></li>
+<li><a href="#shared-preferences编辑器">Shared Preferences编辑器</a></li>
+<li><a href="#使用strict-mode">使用Strict mode调试软件</a></li>
+<li><a href="#崩溃日志">截获App崩溃，收集崩溃日志</a></li>
+<li><a href="#使用leak-canary">轻松找到可能出现的内存泄漏代码</a></li>
+<li><a href="#使用block-canary">找到可能出现的UI卡顿代码</a></li>
+<li><a href="#进入一切activity并注入参数">简易创造Activity入口，及测试Runnable</a></li>
+</ul>
+<h4 id="Http监听"><a href="#Http监听" class="headerlink" title="Http监听"></a>Http监听</h4><p>通过OkHttp的拦截器监听通过App的Http请求，并记录在Debug Bottle的日志中。记录过的日志可以通过分享按钮分享给其他开发者。</p>
+<p><a href="screenshots/raw/network-sniffer-1.png"><img src="screenshots/network-sniffer-1.png"></a><br><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/network-sniffer-2.png"></a></p>
+<h4 id="3D化视图"><a href="#3D化视图" class="headerlink" title="3D化视图"></a>3D化视图</h4><p>通过设置打开“3D”功能，可以更直观地看到当前Activity的layout结构。<br>本功能支持单点手势旋转，双点手势缩放和位移。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/scalpel-view.png"></a><br><a href="screenshots/raw/scalpel-view.gif"><img src="screenshots/scalpel-view.gif" width="225" height="400"></a></p>
+<h4 id="Shared-Preferences编辑器"><a href="#Shared-Preferences编辑器" class="headerlink" title="Shared Preferences编辑器"></a>Shared Preferences编辑器</h4><p>通过Debug Bottle可以简单地编辑App用到的所有Shared Preferences。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/shared-preferences-editor-1.png"></a><br><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/shared-preferences-editor-2.png"></a></p>
+<h4 id="使用Strict-Mode"><a href="#使用Strict-Mode" class="headerlink" title="使用Strict Mode"></a>使用Strict Mode</h4><p>Debug Bottle可以在运行时启用或禁用Strict Mode。StrictMode最常用来捕捉应用程序的主线程，它将报告与线程及虚拟机相关的策略违例。一旦检测到策略违例（policy violation），你将获得警告，其包含了一个栈trace显示你的应用在何处发生违例。除了主线程，我们还可以在Handler，AsyncTask，AsyncQueryHandler，IntentService等API中使用StrictMode。更多使用方法介绍，参见<a href="https://developer.android.com/reference/android/os/StrictMode.html" target="_blank" rel="noopener">官方开发者文档</a>。</p>
+<h4 id="崩溃日志"><a href="#崩溃日志" class="headerlink" title="崩溃日志"></a>崩溃日志</h4><p>收集所有崩溃的信息，存储成日志文件。</p>
+<p><a href="screenshots/raw/crash.gif"><img src="screenshots/crash.gif" width="225" height="400"></a></p>
+<h4 id="使用Leak-Canary"><a href="#使用Leak-Canary" class="headerlink" title="使用Leak Canary"></a>使用Leak Canary</h4><p>Debug Bottle中编译进了Leak Canary，所有Leak Canary的功能都可以使用了，并且可以通过Debug Bottle来控制开关。Leak Canary的使用方法请参考<a href="https://github.com/square/leakcanary/wiki/FAQ" target="_blank" rel="noopener">官方Wiki</a>。</p>
+<h4 id="使用Block-Canary"><a href="#使用Block-Canary" class="headerlink" title="使用Block Canary"></a>使用Block Canary</h4><p>加入了支持Kotlin的Block Canary，可以监控UI线程卡死。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/ui-blocks.png"></a><br><a href="screenshots/raw/block-canary-demo.gif"><img src="scree1nshots/block-canary-demo.gif" width="225" height="400"></a></p>
+<h4 id="进入一切Activity并注入参数"><a href="#进入一切Activity并注入参数" class="headerlink" title="进入一切Activity并注入参数"></a>进入一切Activity并注入参数</h4><p>简单的Activity／Runnable入口。可以随心所欲进入任何一个Activity，使用任何参数，甚至可以向App中注入想要测试的Intent。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/all-activities.png"></a><br><a href="screenshots/raw/run-activity-with-intent.gif"><img src="screenshots/run-activity-with-intent.gif" width="225" height="400"></a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>安装嵌入Debug Bottle的App后，你将看到初你App外的新图标🍼。点击进入Debug面板。</p>
+<h2 id="搭建方法"><a href="#搭建方法" class="headerlink" title="搭建方法"></a>搭建方法</h2><h4 id="1-加入Gradle依赖"><a href="#1-加入Gradle依赖" class="headerlink" title="1. 加入Gradle依赖"></a>1. 加入Gradle依赖</h4><p>首先在工程Gradle文件中添加snapshot源：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">"https://oss.sonatype.org/content/repositories/snapshots"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在主模块中（Application类所在模块）加入依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.1.1'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.1.1'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.2.0+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Debug Bottle不仅支持API 23+，还可以支持API 22. 若想使用API 22，请按照下面方式加入依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.0.6-support22'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support22'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support22'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support22'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support22'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:22+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>若只需支持API23，请按照下面方式加入依赖:<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.0.6-support23'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support23'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support23'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support23'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support23'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-编辑Manifest"><a href="#2-编辑Manifest" class="headerlink" title="2. 编辑Manifest"></a>2. 编辑Manifest</h4><p>加入Debug Bottle的主Activity：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"com.exyui.android.debugbottle.components.DTDrawerActivity"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:theme</span>=<span class="string">"@style/Theme.AppCompat.Light"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">"调试工具"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>“调试工具”是Debug Bottle在Android launch pad中显示的名称, 可以随意命名。</p>
+<h4 id="3-在Application中插入Debug-Bottle代码"><a href="#3-在Application中插入Debug-Bottle代码" class="headerlink" title="3. 在Application中插入Debug Bottle代码"></a>3. 在Application中插入Debug Bottle代码</h4><p>首先实现Block Canary运行必要的上下文类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppBlockCanaryContext</span> <span class="keyword">extends</span> <span class="title">BlockCanaryContext</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在Application的onCreate中插入代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        DTInstaller.install(<span class="keyword">this</span>)</span><br><span class="line">            .setBlockCanary(<span class="keyword">new</span> AppBlockCanaryContext(<span class="keyword">this</span>))</span><br><span class="line">            .setOkHttpClient(httpClient)</span><br><span class="line">            .setInjector(<span class="string">"your.package.injector.ContentInjector"</span>)</span><br><span class="line">            .setPackageName(<span class="string">"your.package"</span>)</span><br><span class="line">            .enable()</span><br><span class="line">            .run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者如果你的工程是Kotlin,你还可以这样写:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span>: <span class="type">Application</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate()</span><br><span class="line">        DTInstaller.install(<span class="keyword">this</span>)</span><br><span class="line">            .setBlockCanary(AppBlockCanaryContext(<span class="keyword">this</span>))</span><br><span class="line">            .setOkHttpClient(httpClient)</span><br><span class="line">            .setInjector(<span class="string">"your.package.injector.ContentInjector"</span>)</span><br><span class="line">            .setPackageName(<span class="string">"your.package"</span>)</span><br><span class="line">            .enable()</span><br><span class="line">            .run()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>收工。</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="https://github.com/square/leakcanary" target="_blank" rel="noopener">Leak Canary</a></li>
+<li><a href="https://github.com/markzhai/AndroidPerformanceMonitor" target="_blank" rel="noopener">Android Performance Monitor</a></li>
+<li><a href="https://github.com/JakeWharton/scalpel" target="_blank" rel="noopener">Scalpel</a></li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Debug Bottle</span><br><span class="line"></span><br><span class="line">Copyright 2016 Yuriel (http://exyui.com).</span><br><span class="line"></span><br><span class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">you may not use this file except in compliance with the License.</span><br><span class="line">You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">   http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">Unless required by applicable law or agreed to in writing, software</span><br><span class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">See the License for the specific language governing permissions and</span><br><span class="line">limitations under the License.</span><br></pre></td></tr></table></figure>
+<p>Debug Bottle 功能实现是基于以下项目的派生:</p>
+<ul>
+<li>Apache License 2.0<ul>
+<li><a href="https://raw.githubusercontent.com/markzhai/AndroidPerformanceMonitor/master/LICENSE" target="_blank" rel="noopener">Android Performance Monitor</a></li>
+<li><a href="https://raw.githubusercontent.com/square/leakcanary/master/LICENSE.txt" target="_blank" rel="noopener">Leak Canary</a></li>
+<li><a href="https://raw.githubusercontent.com/JakeWharton/scalpel/master/LICENSE.txt" target="_blank" rel="noopener">Scalpel</a></li>
+<li><a href="https://raw.githubusercontent.com/txusballesteros/bubbles-for-android/master/LICENSE" target="_blank" rel="noopener">Bubbles for Android</a></li>
+<li><a href="https://raw.githubusercontent.com/wasabeef/Takt/master/LICENSE" target="_blank" rel="noopener">Takt</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/07/11/Java-反射机制/" rel="next" title="Java 反射机制">
+                <i class="fa fa-chevron-left"></i> Java 反射机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/avatar.jpg"
+                alt="Horace Zhao" />
+            
+              <p class="site-author-name" itemprop="name">Horace Zhao</p>
+              <p class="site-description motion-element" itemprop="description">宁静以致远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:quintus_horace@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/quintushorace" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/gutogu" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/quintushorace" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#🍼Debug-Bottle"><span class="nav-number">1.</span> <span class="nav-text">🍼Debug Bottle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">1.1.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Http监听"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Http监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3D化视图"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">3D化视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shared-Preferences编辑器"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">Shared Preferences编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Strict-Mode"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">使用Strict Mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#崩溃日志"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">崩溃日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Leak-Canary"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">使用Leak Canary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Block-Canary"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">使用Block Canary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入一切Activity并注入参数"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">进入一切Activity并注入参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">1.2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建方法"><span class="nav-number">1.3.</span> <span class="nav-text">搭建方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-加入Gradle依赖"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1. 加入Gradle依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-编辑Manifest"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2. 编辑Manifest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在Application中插入Debug-Bottle代码"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">3. 在Application中插入Debug Bottle代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关链接"><span class="nav-number">1.4.</span> <span class="nav-text">相关链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#License"><span class="nav-number">1.5.</span> <span class="nav-text">License</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Horace Zhao</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共20.0k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+    <!-- id: window.location.pathname,  -->
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: 'Android debug 神器',
+            owner: 'quintushorace',
+            repo: 'quintushorace.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '08b98c78dc0fb4a60ff44438b7e44841198db956',
+            
+                client_id: '379b85213af6208ee40b'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

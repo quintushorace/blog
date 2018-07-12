@@ -252,6 +252,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/12/Android-debug-神器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Horace Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浩子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/07/12/Android-debug-神器/" itemprop="url">Android debug 神器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T14:07:44+08:00">
+                2018-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,341
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://travis-ci.org/kiruto/debug-bottle" title="Latest push build on default branch: created" target="_blank" rel="noopener"><br>  <img src="https://travis-ci.org/kiruto/debug-bottle.svg?branch=1.0.1" alt="build:created"><br></a><br><a href="https://mvnrepository.com/artifact/com.exyui.android/debug-bottle-runtime" name="status-images" title="Latest version on maven-central" target="_blank" rel="noopener"><br>  <img src="https://img.shields.io/maven-central/v/com.exyui.android/debug-bottle-runtime.svg?maxAge=2592000" alt="version:maven-central"><br></a></p>
+<h1 id="🍼Debug-Bottle"><a href="#🍼Debug-Bottle" class="headerlink" title="🍼Debug Bottle"></a>🍼Debug Bottle</h1><p>Android Java / Kotlin 程序员开发调试工具。Debug Bottle的所有功能均建立在App的debug版本中，不会对release版本产生任何影响。Debug Bottle旨在提高开发效率，把控App质量。</p>
+<ul>
+<li><a href="docs/zh-CN/README.md">开发文档</a></li>
+<li><a href="CHANGELOG.md">CHANGELOG</a></li>
+<li><a href="TODO.md">TODO</a></li>
+</ul>
+<p>Demo App可在Google Play中下载:</p>
+<p><a href="https://play.google.com/store/apps/details?id=me.chunyu.dev.yuriel.kotdebugtool" target="_blank" rel="noopener"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" width="300"></a></p>
+<p><a href="screenshots/raw/introduction.gif"><img src="screenshots/introduction.gif" width="225" height="400"></a><br><a href="screenshots/raw/quick-toggles.png"><img src="screenshots/quick-toggles.png"></a><br><a href="screenshots/raw/features-2.png"><img src="screenshots/features-2.png"></a></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li><a href="#Http监听">简易的HTTP请求嗅探</a></li>
+<li><a href="#3D化视图">3D化Activity视图</a></li>
+<li><a href="#shared-preferences编辑器">Shared Preferences编辑器</a></li>
+<li><a href="#使用strict-mode">使用Strict mode调试软件</a></li>
+<li><a href="#崩溃日志">截获App崩溃，收集崩溃日志</a></li>
+<li><a href="#使用leak-canary">轻松找到可能出现的内存泄漏代码</a></li>
+<li><a href="#使用block-canary">找到可能出现的UI卡顿代码</a></li>
+<li><a href="#进入一切activity并注入参数">简易创造Activity入口，及测试Runnable</a></li>
+</ul>
+<h4 id="Http监听"><a href="#Http监听" class="headerlink" title="Http监听"></a>Http监听</h4><p>通过OkHttp的拦截器监听通过App的Http请求，并记录在Debug Bottle的日志中。记录过的日志可以通过分享按钮分享给其他开发者。</p>
+<p><a href="screenshots/raw/network-sniffer-1.png"><img src="screenshots/network-sniffer-1.png"></a><br><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/network-sniffer-2.png"></a></p>
+<h4 id="3D化视图"><a href="#3D化视图" class="headerlink" title="3D化视图"></a>3D化视图</h4><p>通过设置打开“3D”功能，可以更直观地看到当前Activity的layout结构。<br>本功能支持单点手势旋转，双点手势缩放和位移。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/scalpel-view.png"></a><br><a href="screenshots/raw/scalpel-view.gif"><img src="screenshots/scalpel-view.gif" width="225" height="400"></a></p>
+<h4 id="Shared-Preferences编辑器"><a href="#Shared-Preferences编辑器" class="headerlink" title="Shared Preferences编辑器"></a>Shared Preferences编辑器</h4><p>通过Debug Bottle可以简单地编辑App用到的所有Shared Preferences。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/shared-preferences-editor-1.png"></a><br><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/shared-preferences-editor-2.png"></a></p>
+<h4 id="使用Strict-Mode"><a href="#使用Strict-Mode" class="headerlink" title="使用Strict Mode"></a>使用Strict Mode</h4><p>Debug Bottle可以在运行时启用或禁用Strict Mode。StrictMode最常用来捕捉应用程序的主线程，它将报告与线程及虚拟机相关的策略违例。一旦检测到策略违例（policy violation），你将获得警告，其包含了一个栈trace显示你的应用在何处发生违例。除了主线程，我们还可以在Handler，AsyncTask，AsyncQueryHandler，IntentService等API中使用StrictMode。更多使用方法介绍，参见<a href="https://developer.android.com/reference/android/os/StrictMode.html" target="_blank" rel="noopener">官方开发者文档</a>。</p>
+<h4 id="崩溃日志"><a href="#崩溃日志" class="headerlink" title="崩溃日志"></a>崩溃日志</h4><p>收集所有崩溃的信息，存储成日志文件。</p>
+<p><a href="screenshots/raw/crash.gif"><img src="screenshots/crash.gif" width="225" height="400"></a></p>
+<h4 id="使用Leak-Canary"><a href="#使用Leak-Canary" class="headerlink" title="使用Leak Canary"></a>使用Leak Canary</h4><p>Debug Bottle中编译进了Leak Canary，所有Leak Canary的功能都可以使用了，并且可以通过Debug Bottle来控制开关。Leak Canary的使用方法请参考<a href="https://github.com/square/leakcanary/wiki/FAQ" target="_blank" rel="noopener">官方Wiki</a>。</p>
+<h4 id="使用Block-Canary"><a href="#使用Block-Canary" class="headerlink" title="使用Block Canary"></a>使用Block Canary</h4><p>加入了支持Kotlin的Block Canary，可以监控UI线程卡死。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/ui-blocks.png"></a><br><a href="screenshots/raw/block-canary-demo.gif"><img src="scree1nshots/block-canary-demo.gif" width="225" height="400"></a></p>
+<h4 id="进入一切Activity并注入参数"><a href="#进入一切Activity并注入参数" class="headerlink" title="进入一切Activity并注入参数"></a>进入一切Activity并注入参数</h4><p>简单的Activity／Runnable入口。可以随心所欲进入任何一个Activity，使用任何参数，甚至可以向App中注入想要测试的Intent。</p>
+<p><a href="screenshots/raw/network-sniffer-2.png"><img src="screenshots/all-activities.png"></a><br><a href="screenshots/raw/run-activity-with-intent.gif"><img src="screenshots/run-activity-with-intent.gif" width="225" height="400"></a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>安装嵌入Debug Bottle的App后，你将看到初你App外的新图标🍼。点击进入Debug面板。</p>
+<h2 id="搭建方法"><a href="#搭建方法" class="headerlink" title="搭建方法"></a>搭建方法</h2><h4 id="1-加入Gradle依赖"><a href="#1-加入Gradle依赖" class="headerlink" title="1. 加入Gradle依赖"></a>1. 加入Gradle依赖</h4><p>首先在工程Gradle文件中添加snapshot源：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">"https://oss.sonatype.org/content/repositories/snapshots"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在主模块中（Application类所在模块）加入依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.1.1'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.1.1'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.1.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.2.0+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Debug Bottle不仅支持API 23+，还可以支持API 22. 若想使用API 22，请按照下面方式加入依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.0.6-support22'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support22'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support22'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support22'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support22'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:22+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>若只需支持API23，请按照下面方式加入依赖:<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    debugCompile <span class="string">'com.exyui.android:debug-bottle-runtime:1.0.6-support23'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Java工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support23'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-java:1.0.6-support23'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果你的工程是Kotlin工程,使用此依赖</span></span><br><span class="line">    releaseCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support23'</span></span><br><span class="line">    testCompile <span class="string">'com.exyui.android:debug-bottle-noop-kotlin:1.0.6-support23'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-编辑Manifest"><a href="#2-编辑Manifest" class="headerlink" title="2. 编辑Manifest"></a>2. 编辑Manifest</h4><p>加入Debug Bottle的主Activity：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"com.exyui.android.debugbottle.components.DTDrawerActivity"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:theme</span>=<span class="string">"@style/Theme.AppCompat.Light"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">"调试工具"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>“调试工具”是Debug Bottle在Android launch pad中显示的名称, 可以随意命名。</p>
+<h4 id="3-在Application中插入Debug-Bottle代码"><a href="#3-在Application中插入Debug-Bottle代码" class="headerlink" title="3. 在Application中插入Debug Bottle代码"></a>3. 在Application中插入Debug Bottle代码</h4><p>首先实现Block Canary运行必要的上下文类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppBlockCanaryContext</span> <span class="keyword">extends</span> <span class="title">BlockCanaryContext</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在Application的onCreate中插入代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        DTInstaller.install(<span class="keyword">this</span>)</span><br><span class="line">            .setBlockCanary(<span class="keyword">new</span> AppBlockCanaryContext(<span class="keyword">this</span>))</span><br><span class="line">            .setOkHttpClient(httpClient)</span><br><span class="line">            .setInjector(<span class="string">"your.package.injector.ContentInjector"</span>)</span><br><span class="line">            .setPackageName(<span class="string">"your.package"</span>)</span><br><span class="line">            .enable()</span><br><span class="line">            .run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者如果你的工程是Kotlin,你还可以这样写:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span>: <span class="type">Application</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate()</span><br><span class="line">        DTInstaller.install(<span class="keyword">this</span>)</span><br><span class="line">            .setBlockCanary(AppBlockCanaryContext(<span class="keyword">this</span>))</span><br><span class="line">            .setOkHttpClient(httpClient)</span><br><span class="line">            .setInjector(<span class="string">"your.package.injector.ContentInjector"</span>)</span><br><span class="line">            .setPackageName(<span class="string">"your.package"</span>)</span><br><span class="line">            .enable()</span><br><span class="line">            .run()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>收工。</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="https://github.com/square/leakcanary" target="_blank" rel="noopener">Leak Canary</a></li>
+<li><a href="https://github.com/markzhai/AndroidPerformanceMonitor" target="_blank" rel="noopener">Android Performance Monitor</a></li>
+<li><a href="https://github.com/JakeWharton/scalpel" target="_blank" rel="noopener">Scalpel</a></li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Debug Bottle</span><br><span class="line"></span><br><span class="line">Copyright 2016 Yuriel (http://exyui.com).</span><br><span class="line"></span><br><span class="line">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">you may not use this file except in compliance with the License.</span><br><span class="line">You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">   http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">Unless required by applicable law or agreed to in writing, software</span><br><span class="line">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">See the License for the specific language governing permissions and</span><br><span class="line">limitations under the License.</span><br></pre></td></tr></table></figure>
+<p>Debug Bottle 功能实现是基于以下项目的派生:</p>
+<ul>
+<li>Apache License 2.0<ul>
+<li><a href="https://raw.githubusercontent.com/markzhai/AndroidPerformanceMonitor/master/LICENSE" target="_blank" rel="noopener">Android Performance Monitor</a></li>
+<li><a href="https://raw.githubusercontent.com/square/leakcanary/master/LICENSE.txt" target="_blank" rel="noopener">Leak Canary</a></li>
+<li><a href="https://raw.githubusercontent.com/JakeWharton/scalpel/master/LICENSE.txt" target="_blank" rel="noopener">Scalpel</a></li>
+<li><a href="https://raw.githubusercontent.com/txusballesteros/bubbles-for-android/master/LICENSE" target="_blank" rel="noopener">Bubbles for Android</a></li>
+<li><a href="https://raw.githubusercontent.com/wasabeef/Takt/master/LICENSE" target="_blank" rel="noopener">Takt</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/11/Java-反射机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -826,7 +1041,7 @@ Hello, Justin
         
           
             <p><body></body></p>
-<section class="content"><br><ul class="items"><br>    <li style="background: #FFFFFF"><article class="wrap"><br>    <h1><a href="#" title="title">Android博客周刊专题之＃插件化开发＃</a></h1><br>    <div class="content">本期专栏目讨论插件化开发。插件化涉及的东西很多，所以我们需要多个维度去学习。大概分为5个部分：预备知识、入门、进阶、系列、类库。一步一步深入了解插件的原理。本专栏会不定时更新相关内容，请留意更新的消息。</div><br>    <footer>转自：<a href="http://www.androidblog.cn/index.php/Index/detail/id/16#" target="_blank" rel="noopener">http://www.androidblog.cn/index.php/Index/detail/id/16#</a></footer> </article></li><br><br></ul><br><br><article class="wrap" style=" margin-top:10px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 6px"><b>基础</b><br></div><br><h2 style="margin-left: 15px"><a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/" target="_blank">1.Java 类加载器</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>类加载器（class loader）是 Java™中的一个很重要的概念。类加载器负责加载 Java 类的字节代码到 Java 虚拟机中。本文首先详细介绍了 Java 类加载器的基本概念，包括代理模式、加载类的具体过程和线程上下文类加载器等，接着介绍如何开发自己的类加载器，最后介绍了类加载器在 Web 容器和 OSGi™中的应用。</div><h2 style="margin-left: 15px"><a href="https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md" target="_blank">2.反射原理</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Java 提供的反射機制允許您於執行時期動態載入類別、檢視類別資訊、生成物件或操作生成的物件，要舉反射機制的一個應用實例，就是在整合式開發環境中所提供的方法提示或是類別檢視工具，另外像 JSP 中的 JavaBean 自動收集請求資訊也使用到反射，而一些軟體開發框架（Framework）也常見到反射機制的使用，以達到動態載入使用者自訂類別的目的。</div><h2 style="margin-left: 15px"><a href="http://www.jianshu.com/p/6f6bb2f0ece9" target="_blank">3.代理模式及Java实现动态代理</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>定义：给某个对象提供一个代理对象，并由代理对象控制对于原对象的访问，即客户不直接操控原对象，而是通过代理对象间接地操控原对象。</div> </article><article class="wrap" style=" margin-top:10px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 6px"><b>入门</b><br></div><br><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/u013478336/article/details/50734108" target="_blank">1.Android动态加载dex技术初探</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>  Android使用Dalvik虚拟机加载可执行程序，所以不能直接加载基于class的jar，而是需要将class转化为dex字节码，从而执行代码。优化后的字节码文件可以存在一个<em>.jar中，只要其内部存放的是</em>.dex即可使用。</div><h2 style="margin-left: 15px"><a href="http://104.236.134.90/2016/02/02/Android%E6%8F%92%E4%BB%B6%E5%8C%96%E5%9F%BA%E7%A1%80/" target="_blank">2.Android插件化入门</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>开发者将插件代码封装成Jar或者APK。宿主下载或者从本地加载Jar或者APK到宿主中。将宿主调用插件中的算法或者Android特定的Class（如Activity）</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/u010687392/article/details/47121729?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io" target="_blank">3.插件化开发—动态加载技术加载已安装和未安装的apk</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>动态加载技术就是使用类加载器加载相应的apk、dex、jar（必须含有dex文件），再通过反射获得该apk、dex、jar内部的资源（class、图片、color等等）进而供宿主app使用。</div><h2 style="margin-left: 15px"><a href="https://blog.tingyun.com/web/article/detail/166" target="_blank">4.Android动态加载技术三个关键问题详解</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>动态加载技术（也叫插件化技术）在技术驱动型的公司中扮演着相当重要的角色，当项目越来越庞大的时候，需要通过插件化来减轻应用的内存和CPU占用，还可以实现热插拔，即在不发布新版本的情况下更新某些模块。</div> </article><article class="wrap" style=" margin-top:10px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 6px"><b>进阶</b><br></div><br><h2 style="margin-left: 15px"><a href="http://mp.weixin.qq.com/s?__biz=MzAwMTcwNTE0NA==&mid=400217391&idx=1&sn=86181541ce0164156dfab135ed99bb5c&scene=0&key=b410d3164f5f798e61a5d4afb759fa38371c8b119384c6163a30c28163b4d4d5f59399f2400800ec842f1d0e0ffb84af&ascene=0&uin=MjExMjQ&pass_ticket=Nt5Jaa28jjFxcQO9o%2BvQiXX%2B0iXG5DlZlHNW97Fk1Ew%3D" target="_blank">1.携程Android App插件化和动态加载实践</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>携程Android App的插件化和动态加载框架已上线半年，经历了初期的探索和持续的打磨优化，新框架和工程配置经受住了生产实践的考验。本文将详细介绍Android平台插件式开发和动态加载技术的原理和实现细节，回顾携程Android App的架构演化过程，期望我们的经验能帮助到更多的Android工程师。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/hkxxx/article/details/42194387" target="_blank">2.动态加载APK原理分享</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br> 被加载的apk称之为插件，因为机制类似于生物学的”寄生”，加载了插件的应用也被称为宿主。<br>往往不是所有的apk都可作为插件被加载，往往需要遵循一定的”开发规范”，还需要插件项目引入某种api类库，业界通常都是这么做的。</div><h2 style="margin-left: 15px"><a href="http://www.cnblogs.com/coding-way/p/4669591.html" target="_blank">3.Android插件化的一种实现</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Android的插件化已经是老生常谈的话题了，插件化的好处有很多：解除代码耦合，插件支持热插拔，静默升级，从根本上解决65K属性和方法的bug等等。下面给大家介绍一下我们正在用的差价化框架。本片主要以类图的方式向大家介绍插件话框架的实现。</div><h2 style="margin-left: 15px"><a href="http://mogu.io/117-117" target="_blank">4.蘑菇街 App 的组件化之路</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>随着我街业务的蓬勃发展，产品和运营随时上新功能新活动的需求越来越强烈，经常可以听到“有个功能我想周x上，行不行”。行么？当然是不行啦，上新功能得发新版本啊，到时候费时费力打乱开发节奏不说，覆盖率也是个问题。</div><h2 style="margin-left: 15px"><a href="http://www.codekk.com/open-source-project-analysis/detail/Android/FFish/DynamicLoadApk%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io" target="_blank">5.DynamicLoadApk 源码解析</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>DynamicLoadApk 是一个开源的 Android 插件化框架。插件化的优点包括：(1) 模块解耦，(2) 动态升级，(3) 高效并行开发(编译速度更快) (4) 按需加载，内存占用更低等等DynamicLoadApk 提供了 3 种开发方式，让开发者在无需理解其工作原理的情况下快速的集成插件化功能。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/singwhatiwanna/article/details/22597587" target="_blank">6.Android apk动态加载机制的研究</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>问题是这样的：我们知道，apk必须安装才能运行，如果不安装要是也能运行该多好啊，事实上，这不是完全不可能的，尽管它比较难实现。在理论层面上，我们可以通过一个宿主程序来运行一些未安装的apk，当然，实践层面上也能实现，不过这对未安装的apk有要求。我们的想法是这样的，首先要明白apk未安装是不能被直接调起来.</div><h2 style="margin-left: 15px"><a href="http://tech.meituan.com/mt-android-auto-split-dex.html" target="_blank">7.美团Android DEX自动拆包及动态加载简介</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>作为一个android开发者，在开发应用时，随着业务规模发展到一定程度，不断地加入新功能、添加新的类库，代码在急剧的膨胀，相应的apk包的大小也急剧增加， 那么终有一天，你会不幸遇到这个错误.<br></div><h2 style="margin-left: 15px"><a href="http://mp.weixin.qq.com/s?__biz=MzAwOTE0ODEwMQ==&mid=401731625&idx=1&sn=9bf2bacfbba43ba9dc7b2e854b64e66c&scene=23&srcid=1231ni0s2Y0OMfYSoNhkkJ47#rd&ADUIN=289832127&ADSESSION=1451551778&ADTAG=CLIENT.QQ.5425_.0&ADPUBNO=26509" target="_blank">8.途牛原创|途牛Android App的插件实现</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>途牛的插件化是基于dynamic-load-apk（github）实现的。定义了宿主和插件的通信方式，使得两者能够互起对方的页面，调用彼此的功能。同时对activity的启动方式singletask等进行了模式实现，并增加了对Service的支持等。总之使得插件开发最大限度的保持着原有的Android开发习惯。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/singwhatiwanna/article/details/23387079" target="_blank">9. Android apk资源加载和activity生命周期管理</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>博主分析了Android中apk的动态加载机制，并在文章的最后指出需要解决的两个复杂问题：资源的访问和activity生命周期的管理，而本文将会分析这两个复杂问题的解决方法。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/singwhatiwanna/article/details/39937639" target="_blank">10.APK动态加载框架（DL）解析</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>首先要说的是动态加载技术（或者说插件化）在技术驱动型的公司中扮演这相当重要的角色，当项目越来越庞大的时候，需要通过插件化来减轻应用的内存和cpu占用，还可以实现热插拔，即在不发布新版本的情况下更新某些模块。<br></div> </article><article class="wrap" style=" margin-top:10px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 6px"><b>系列</b><br></div><br><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062866" target="_blank">1.Kaedea—Android动态加载技术 简单易懂的介绍</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>我们很早开始就在Android项目中采用了动态加载技术，主要目的是为了达到让用户不用重新安装APK就能升级应用的功能（特别是 SDK项目），这样一来不但可以大大提高应用新版本的覆盖率，也减少了服务器对旧版本接口兼容的压力，同时如果也可以快速修复一些线上的BUG。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062880" target="_blank">2.Kaedea—Android动态加载基础 ClassLoader的工作机制</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>早期使用过Eclipse等Java编写的软件的同学可能比较熟悉，Eclipse可以加载许多第三方的插件（或者叫扩展），这就是动态加载。这些插件大多是一些Jar包，而使用插件其实就是动态加载Jar包里的Class进行工作。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062899" target="_blank">3.Kaedea—Android动态加载补充 加载SD卡的SO库</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Android中JNI的使用其实就包含了动态加载，APP运行时动态加载.so库并通过JNI调用其封装好的方法。后者一般是使用NDK工具从C/C++代码编译而成，运行在Native层，效率会比执行在虚拟机的Java代码高很多，所以Android中经常通过动态加载.so库来完成一些对性能比较有需求的工作（比如T9搜索、或者Bitmap的解码、图片高斯模糊处理等）。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062952" target="_blank">4.Kaedea—Android动态加载入门 简单加载模式</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Java程序中，JVM虚拟机是通过类加载器ClassLoader加载.jar文件里面的类的。Android也类似，不过Android用的是Dalvik/ART虚拟机，不是JVM，也不能直接加载.jar文件，而是加载dex文件。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004062972" target="_blank">5.Kaedea—Android动态加载进阶 代理Activity模式</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>简单模式中，使用ClassLoader加载外部的Dex或Apk文件，可以加载一些本地APP不存在的类，从而执行一些新的代码逻辑。但是使用这种方法却不能直接启动插件里的Activity。</div><h2 style="margin-left: 15px"><a href="https://segmentfault.com/a/1190000004077469" target="_blank">6.Kaedea—Android动态加载黑科技 动态创建Activity模式</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>还记得我们在代理Activity模式里谈到启动插件APK里的Activity的两个难题吗，由于插件里的Activity没在主项目的Manifest里面注册，所以无法经历系统Framework层级的一系列初始化过程，最终导致获得的Activity实例并没有生命周期和无法使用res资源。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/17679823" target="_blank">7.尼古拉斯—插件开发基础篇：动态加载技术解读</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>在目前的软硬件环境下，Native App与Web App在用户体验上有着明显的优势，但在实际项目中有些会因为业务的频繁变更而频繁的升级客户端，造成较差的用户体验，而这也恰恰是Web App的优势。本文对网上Android动态加载jar的资料进行梳理和实践在这里与大家一起分享，试图改善频繁升级这一弊病。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/41384667" target="_blank">8.尼古拉斯—插件开发开篇：类加载器分析</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>这篇文章主要介绍了Android中主要的两个类加载器：PathClassLoader和DexClassLoader,他们的区别，联系，用法等问题，以及我们在制作插件的过程中会遇到哪些常见的问题。这篇文章也是后续两篇文章的基础，因为如果不了解这两个类的话，我们将无法进行后续的操作。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/47679843" target="_blank">9.尼古拉斯—插件开发中篇：资源加载问题(换肤原理解析)</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>这篇文章主要通过现在一些应用自带的换肤技术的解读来看看，在开发插件的过程中如何解决一些资源加载上的问题，这个问题为何要单独拿出来解释，就是因为他涉及的知识很多，也是后面一篇文章的基础，我们在需要加载插件中的资源文件的时候。</div><h2 style="margin-left: 15px"><a href="http://blog.csdn.net/jiangwei0910410003/article/details/48104455" target="_blank">10.尼古拉斯—插件开发终极篇：动态加载Activity(免安装运行程序)</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>这篇文章主要是讲解了如何加载插件中的Activity。从而实现免安装运行程序，同时这篇文章也是对前三篇文章知识的综合使用。下载很多应用都会使用到插件技术，因为包的大小和一些功能的优先级来决定哪些模块可以制作成插件。</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/01/28/understand-plugin-framework-overview/" target="_blank">11.Weishu—Android插件化原理解析——概要</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>类的加载可以使用Java的ClassLoader机制，但是对于Android来说，并不是说类加载进来就可以用了，很多组件都是有“生命”的；因此对于这些有血有肉的类，必须给它们注入活力，也就是所谓的组件生命周期管理.</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/01/28/understand-plugin-framework-proxy-hook/" target="_blank">12.Weishu—Android插件化原理解析——Hook机制之动态代理</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>使用代理机制进行API Hook进而达到方法增强是框架的常用手段，比如J2EE框架Spring通过动态代理优雅地实现了AOP编程，极大地提升了Web开发效率；同样，插件框架也广泛使用了代理机制来增强系统API从而达到插件化的目的.</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/02/16/understand-plugin-framework-binder-hook/" target="_blank">13.Weishu—Android插件化原理解析——Hook机制之Binder Hook</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Android系统通过Binder机制给应用程序提供了一系列的系统服务，诸如ActivityManagerService，ClipboardManager， AudioManager等；这些广泛存在系统服务给应用程序提供了诸如任务管理，音频，视频等异常强大的功能。</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/03/07/understand-plugin-framework-ams-pms-hook/" target="_blank">14.Weishu—Android 插件化原理解析——Hook机制之AMS&amp;PMS</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>在前面的文章中我们介绍了DroidPlugin的Hook机制，也就是代理方式和Binder Hook；插件框架通过AOP实现了插件使用和开发的透明性。在讲述DroidPlugin如何实现四大组件的插件化之前，有必要说明一下它对AMS以及PMS的Hook方式。</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/03/21/understand-plugin-framework-activity-management/" target="_blank">15.Weishu—Android 插件化原理解析——Activity生命周期管理</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>之前的 Android插件化原理解析 系列文章揭开了Hook机制的神秘面纱，现在我们手握倚天屠龙，那么如何通过这种技术完成插件化方案呢？具体来说，插件中的Activity，Service等组件如何在Android系统上运行起来？<br></div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/04/05/understand-plugin-framework-classloader/" target="_blank">16.Weishu—Android 插件化原理解析——插件加载机制</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>上文 Activity生命周期管理 中我们地完成了『启动没有在AndroidManifest.xml中显式声明的Activity』的任务；通过Hook AMS和拦截ActivityThread中H类对于组件调度我们成功地绕过了AndroidMAnifest.xml的限制。<br></div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/04/12/understand-plugin-framework-receiver/" target="_blank">17.Weishu—Android插件化原理解析——广播的管理</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>在Activity生命周期管理 以及 插件加载机制 中我们详细讲述了插件化过程中对于Activity组件的处理方式，为了实现Activity的插件化我们付出了相当多的努力；那么Android系统的其他组件，比如BroadcastReceiver，Service还有ContentProvider，它们又该如何处理呢？</div><h2 style="margin-left: 15px"><a href="http://weishu.me/2016/05/11/understand-plugin-framework-service/" target="_blank">18.Weishu—Android 插件化原理解析——Service的插件化</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>在 Activity生命周期管理 以及 广播的管理 中我们详细探讨了Android系统中的Activity、BroadcastReceiver组件的工作原理以及它们的插件化方案，相信读者已经对Android Framework和插件化技术有了一定的了解；</div> </article><article class="wrap" style=" margin-top:10px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 6px"><b>类库</b><br></div><br><h2 style="margin-left: 15px"><a href="https://github.com/Qihoo360/DroidPlugin" target="_blank">1.DroidPlugin</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>是360手机助手在Android系统上实现了一种新的插件机制</div><h2 style="margin-left: 15px"><a href="https://github.com/limpoxe/Android-Plugin-Framework" target="_blank">2.Android-Plugin-Framework</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>此项目是Android插件开发框架完整源码及示例。用来通过动态加载的方式在宿主程序中运行插件APK。</div><h2 style="margin-left: 15px"><a href="https://github.com/wequick/Small" target="_blank">3.Small</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>世界那么大，组件那么小。Small，做最轻巧的跨平台插件化框架。里面有很详细的文档</div><h2 style="margin-left: 15px"><a href="https://github.com/singwhatiwanna/dynamic-load-apk" target="_blank">4.dynamic-load-apk</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Android 使用动态加载框架DL进行插件化开发</div><h2 style="margin-left: 15px"><a href=" https://github.com/mmin18/AndroidDynamicLoader" target="_blank">5.AndroidDynamicLoader</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Android 动态加载框架，他不是用代理 Activity 的方式实现而是用 Fragment 以及 Schema 的方式实现</div><h2 style="margin-left: 15px"><a href="https://github.com/CtripMobile/DynamicAPK" target="_blank">6.DynamicAPK</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>实现Android App多apk插件化和动态加载，支持资源分包和热修复.携程App的插件化和动态加载框架.</div><h2 style="margin-left: 15px"><a href="https://github.com/bunnyblue/ACDD/blob/master/README-Zh.md" target="_blank">7.ACDD</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>非代理Android动态部署框架</div><h2 style="margin-left: 15px"><a href="https://github.com/houkx/android-pluginmgr" target="_blank">8.android-pluginmgr</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>不需要插件规范的apk动态加载框架。</div> </article><article class="wrap" style=" margin-top:10px "><br><br><div style="font-size: 30px; font: '宋体'; margin-bottom: 6px"><b>参考视频</b><br></div><br><h2 style="margin-left: 15px"><a href="http://www.infoq.com/cn/presentations/the-realization-principle-and-application-of-droidplugin" target="_blank">1.DroidPlugin的实现原理及其应用</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br>Droid Plugin是360手机助手在2015年初研发的一个全新的基于Android平台的插件机制.</div><h2 style="margin-left: 15px"><a href="http://v.youku.com/v_show/id_XNTMzMjYzMzM2.html" target="_blank">2.android插件化及动态部署</a><br></h2><br><br><div style="margin-top: 5px; margin-left: 25px; margin-bottom: 6px"><br> 阿里技术沙龙第十六期《android插件化及动态部署》视频</div> </article> </section>
+<section class="content"><br><ul class="items"><br>    <li style="background: #FFFFFF"><br>    <h1><a href="#" title="title">Android博客周刊专题之＃插件化开发＃</a></h1><br>本期专栏目讨论插件化开发。插件化涉及的东西很多，所以我们需要多个维度去学习。大概分为5个部分：预备知识、入门、进阶、系列、类库。一步一步深入了解插件的原理。本专栏会不定时更新相关内容，请留意更新的消息。<br>    <footer>转自：<a href="http://www.androidblog.cn/index.php/Index/detail/id/16#" target="_blank" rel="noopener">http://www.androidblog.cn/index.php/Index/detail/id/16#</a></footer> </li><br></ul><br><br><b>基础</b><br><a href="https://www.ibm.com/developerworks/cn/java/j-lo-classloader/" target="_blank">1.Java 类加载器</a><br>类加载器（class loader）是 Java™中的一个很重要的概念。类加载器负责加载 Java 类的字节代码到 Java 虚拟机中。本文首先详细介绍了 Java 类加载器的基本概念，包括代理模式、加载类的具体过程和线程上下文类加载器等，接着介绍如何开发自己的类加载器，最后介绍了类加载器在 Web 容器和 OSGi™中的应用。<br><a href="https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md" target="_blank">2.反射原理</a><br><br>Java 提供的反射機制允許您於執行時期動態載入類別、檢視類別資訊、生成物件或操作生成的物件，要舉反射機制的一個應用實例，就是在整合式開發環境中所提供的方法提示或是類別檢視工具，另外像 JSP 中的 JavaBean 自動收集請求資訊也使用到反射，而一些軟體開發框架（Framework）也常見到反射機制的使用，以達到動態載入使用者自訂類別的目的。<br><a href="http://www.jianshu.com/p/6f6bb2f0ece9" target="_blank">3.代理模式及Java实现动态代理</a><br>定义：给某个对象提供一个代理对象，并由代理对象控制对于原对象的访问，即客户不直接操控原对象，而是通过代理对象间接地操控原对象。<br><b>入门</b><br><br><a href="http://blog.csdn.net/u013478336/article/details/50734108" target="_blank">1.Android动态加载dex技术初探</a><br><br><br>  Android使用Dalvik虚拟机加载可执行程序，所以不能直接加载基于class的jar，而是需要将class转化为dex字节码，从而执行代码。优化后的字节码文件可以存在一个<em>.jar中，只要其内部存放的是</em>.dex即可使用。<a href="http://104.236.134.90/2016/02/02/Android%E6%8F%92%E4%BB%B6%E5%8C%96%E5%9F%BA%E7%A1%80/" target="_blank">2.Android插件化入门</a><br><br>开发者将插件代码封装成Jar或者APK。宿主下载或者从本地加载Jar或者APK到宿主中。将宿主调用插件中的算法或者Android特定的Class（如Activity）<a href="http://blog.csdn.net/u010687392/article/details/47121729?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io" target="_blank">3.插件化开发—动态加载技术加载已安装和未安装的apk</a><br><br>动态加载技术就是使用类加载器加载相应的apk、dex、jar（必须含有dex文件），再通过反射获得该apk、dex、jar内部的资源（class、图片、color等等）进而供宿主app使用。<a href="https://blog.tingyun.com/web/article/detail/166" target="_blank">4.Android动态加载技术三个关键问题详解</a><br><br>动态加载技术（也叫插件化技术）在技术驱动型的公司中扮演着相当重要的角色，当项目越来越庞大的时候，需要通过插件化来减轻应用的内存和CPU占用，还可以实现热插拔，即在不发布新版本的情况下更新某些模块。<br><b>进阶</b><br><a href="http://mp.weixin.qq.com/s?__biz=MzAwMTcwNTE0NA==&mid=400217391&idx=1&sn=86181541ce0164156dfab135ed99bb5c&scene=0&key=b410d3164f5f798e61a5d4afb759fa38371c8b119384c6163a30c28163b4d4d5f59399f2400800ec842f1d0e0ffb84af&ascene=0&uin=MjExMjQ&pass_ticket=Nt5Jaa28jjFxcQO9o%2BvQiXX%2B0iXG5DlZlHNW97Fk1Ew%3D" target="_blank">1.携程Android App插件化和动态加载实践</a><br><br>携程Android App的插件化和动态加载框架已上线半年，经历了初期的探索和持续的打磨优化，新框架和工程配置经受住了生产实践的考验。本文将详细介绍Android平台插件式开发和动态加载技术的原理和实现细节，回顾携程Android App的架构演化过程，期望我们的经验能帮助到更多的Android工程师。<a href="http://blog.csdn.net/hkxxx/article/details/42194387" target="_blank">2.动态加载APK原理分享</a><br><br> 被加载的apk称之为插件，因为机制类似于生物学的”寄生”，加载了插件的应用也被称为宿主。<br>往往不是所有的apk都可作为插件被加载，往往需要遵循一定的”开发规范”，还需要插件项目引入某种api类库，业界通常都是这么做的。<a href="http://www.cnblogs.com/coding-way/p/4669591.html" target="_blank">3.Android插件化的一种实现</a><br><br>Android的插件化已经是老生常谈的话题了，插件化的好处有很多：解除代码耦合，插件支持热插拔，静默升级，从根本上解决65K属性和方法的bug等等。下面给大家介绍一下我们正在用的差价化框架。本片主要以类图的方式向大家介绍插件话框架的实现。<a href="http://mogu.io/117-117" target="_blank">4.蘑菇街 App 的组件化之路</a><br><br><br><br>随着我街业务的蓬勃发展，产品和运营随时上新功能新活动的需求越来越强烈，经常可以听到“有个功能我想周x上，行不行”。行么？当然是不行啦，上新功能得发新版本啊，到时候费时费力打乱开发节奏不说，覆盖率也是个问题。<a href="http://www.codekk.com/open-source-project-analysis/detail/Android/FFish/DynamicLoadApk%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io" target="_blank">5.DynamicLoadApk 源码解析</a><br><br><br><br>DynamicLoadApk 是一个开源的 Android 插件化框架。插件化的优点包括：(1) 模块解耦，(2) 动态升级，(3) 高效并行开发(编译速度更快) (4) 按需加载，内存占用更低等等DynamicLoadApk 提供了 3 种开发方式，让开发者在无需理解其工作原理的情况下快速的集成插件化功能。<a href="http://blog.csdn.net/singwhatiwanna/article/details/22597587" target="_blank">6.Android apk动态加载机制的研究</a><br><br><br><br>问题是这样的：我们知道，apk必须安装才能运行，如果不安装要是也能运行该多好啊，事实上，这不是完全不可能的，尽管它比较难实现。在理论层面上，我们可以通过一个宿主程序来运行一些未安装的apk，当然，实践层面上也能实现，不过这对未安装的apk有要求。我们的想法是这样的，首先要明白apk未安装是不能被直接调起来.<a href="http://tech.meituan.com/mt-android-auto-split-dex.html" target="_blank">7.美团Android DEX自动拆包及动态加载简介</a><br><br><br><br>作为一个android开发者，在开发应用时，随着业务规模发展到一定程度，不断地加入新功能、添加新的类库，代码在急剧的膨胀，相应的apk包的大小也急剧增加， 那么终有一天，你会不幸遇到这个错误.<br><a href="http://mp.weixin.qq.com/s?__biz=MzAwOTE0ODEwMQ==&mid=401731625&idx=1&sn=9bf2bacfbba43ba9dc7b2e854b64e66c&scene=23&srcid=1231ni0s2Y0OMfYSoNhkkJ47#rd&ADUIN=289832127&ADSESSION=1451551778&ADTAG=CLIENT.QQ.5425_.0&ADPUBNO=26509" target="_blank">8.途牛原创|途牛Android App的插件实现</a><br><br><br><br>途牛的插件化是基于dynamic-load-apk（github）实现的。定义了宿主和插件的通信方式，使得两者能够互起对方的页面，调用彼此的功能。同时对activity的启动方式singletask等进行了模式实现，并增加了对Service的支持等。总之使得插件开发最大限度的保持着原有的Android开发习惯。<a href="http://blog.csdn.net/singwhatiwanna/article/details/23387079" target="_blank">9. Android apk资源加载和activity生命周期管理</a><br><br><br><br>博主分析了Android中apk的动态加载机制，并在文章的最后指出需要解决的两个复杂问题：资源的访问和activity生命周期的管理，而本文将会分析这两个复杂问题的解决方法。<a href="http://blog.csdn.net/singwhatiwanna/article/details/39937639" target="_blank">10.APK动态加载框架（DL）解析</a><br><br><br><br>首先要说的是动态加载技术（或者说插件化）在技术驱动型的公司中扮演这相当重要的角色，当项目越来越庞大的时候，需要通过插件化来减轻应用的内存和cpu占用，还可以实现热插拔，即在不发布新版本的情况下更新某些模块。<br><br><b>系列</b><br><br><a href="https://segmentfault.com/a/1190000004062866" target="_blank">1.Kaedea—Android动态加载技术 简单易懂的介绍</a><br><br><br><br>我们很早开始就在Android项目中采用了动态加载技术，主要目的是为了达到让用户不用重新安装APK就能升级应用的功能（特别是 SDK项目），这样一来不但可以大大提高应用新版本的覆盖率，也减少了服务器对旧版本接口兼容的压力，同时如果也可以快速修复一些线上的BUG。<a href="https://segmentfault.com/a/1190000004062880" target="_blank">2.Kaedea—Android动态加载基础 ClassLoader的工作机制</a><br><br><br><br>早期使用过Eclipse等Java编写的软件的同学可能比较熟悉，Eclipse可以加载许多第三方的插件（或者叫扩展），这就是动态加载。这些插件大多是一些Jar包，而使用插件其实就是动态加载Jar包里的Class进行工作。<a href="https://segmentfault.com/a/1190000004062899" target="_blank">3.Kaedea—Android动态加载补充 加载SD卡的SO库</a><br><br><br><br>Android中JNI的使用其实就包含了动态加载，APP运行时动态加载.so库并通过JNI调用其封装好的方法。后者一般是使用NDK工具从C/C++代码编译而成，运行在Native层，效率会比执行在虚拟机的Java代码高很多，所以Android中经常通过动态加载.so库来完成一些对性能比较有需求的工作（比如T9搜索、或者Bitmap的解码、图片高斯模糊处理等）。<a href="https://segmentfault.com/a/1190000004062952" target="_blank">4.Kaedea—Android动态加载入门 简单加载模式</a><br><br><br><br>Java程序中，JVM虚拟机是通过类加载器ClassLoader加载.jar文件里面的类的。Android也类似，不过Android用的是Dalvik/ART虚拟机，不是JVM，也不能直接加载.jar文件，而是加载dex文件。<a href="https://segmentfault.com/a/1190000004062972" target="_blank">5.Kaedea—Android动态加载进阶 代理Activity模式</a><br><br><br><br>简单模式中，使用ClassLoader加载外部的Dex或Apk文件，可以加载一些本地APP不存在的类，从而执行一些新的代码逻辑。但是使用这种方法却不能直接启动插件里的Activity。<a href="https://segmentfault.com/a/1190000004077469" target="_blank">6.Kaedea—Android动态加载黑科技 动态创建Activity模式</a><br><br><br><br>还记得我们在代理Activity模式里谈到启动插件APK里的Activity的两个难题吗，由于插件里的Activity没在主项目的Manifest里面注册，所以无法经历系统Framework层级的一系列初始化过程，最终导致获得的Activity实例并没有生命周期和无法使用res资源。<a href="http://blog.csdn.net/jiangwei0910410003/article/details/17679823" target="_blank">7.尼古拉斯—插件开发基础篇：动态加载技术解读</a><br><br><br><br>在目前的软硬件环境下，Native App与Web App在用户体验上有着明显的优势，但在实际项目中有些会因为业务的频繁变更而频繁的升级客户端，造成较差的用户体验，而这也恰恰是Web App的优势。本文对网上Android动态加载jar的资料进行梳理和实践在这里与大家一起分享，试图改善频繁升级这一弊病。<a href="http://blog.csdn.net/jiangwei0910410003/article/details/41384667" target="_blank">8.尼古拉斯—插件开发开篇：类加载器分析</a><br><br><br><br>这篇文章主要介绍了Android中主要的两个类加载器：PathClassLoader和DexClassLoader,他们的区别，联系，用法等问题，以及我们在制作插件的过程中会遇到哪些常见的问题。这篇文章也是后续两篇文章的基础，因为如果不了解这两个类的话，我们将无法进行后续的操作。<a href="http://blog.csdn.net/jiangwei0910410003/article/details/47679843" target="_blank">9.尼古拉斯—插件开发中篇：资源加载问题(换肤原理解析)</a><br><br><br><br>这篇文章主要通过现在一些应用自带的换肤技术的解读来看看，在开发插件的过程中如何解决一些资源加载上的问题，这个问题为何要单独拿出来解释，就是因为他涉及的知识很多，也是后面一篇文章的基础，我们在需要加载插件中的资源文件的时候。<a href="http://blog.csdn.net/jiangwei0910410003/article/details/48104455" target="_blank">10.尼古拉斯—插件开发终极篇：动态加载Activity(免安装运行程序)</a><br><br><br><br>这篇文章主要是讲解了如何加载插件中的Activity。从而实现免安装运行程序，同时这篇文章也是对前三篇文章知识的综合使用。下载很多应用都会使用到插件技术，因为包的大小和一些功能的优先级来决定哪些模块可以制作成插件。<a href="http://weishu.me/2016/01/28/understand-plugin-framework-overview/" target="_blank">11.Weishu—Android插件化原理解析——概要</a><br><br><br><br>类的加载可以使用Java的ClassLoader机制，但是对于Android来说，并不是说类加载进来就可以用了，很多组件都是有“生命”的；因此对于这些有血有肉的类，必须给它们注入活力，也就是所谓的组件生命周期管理.<a href="http://weishu.me/2016/01/28/understand-plugin-framework-proxy-hook/" target="_blank">12.Weishu—Android插件化原理解析——Hook机制之动态代理</a><br><br><br><br>使用代理机制进行API Hook进而达到方法增强是框架的常用手段，比如J2EE框架Spring通过动态代理优雅地实现了AOP编程，极大地提升了Web开发效率；同样，插件框架也广泛使用了代理机制来增强系统API从而达到插件化的目的.<a href="http://weishu.me/2016/02/16/understand-plugin-framework-binder-hook/" target="_blank">13.Weishu—Android插件化原理解析——Hook机制之Binder Hook</a><br><br><br><br>Android系统通过Binder机制给应用程序提供了一系列的系统服务，诸如ActivityManagerService，ClipboardManager， AudioManager等；这些广泛存在系统服务给应用程序提供了诸如任务管理，音频，视频等异常强大的功能。<a href="http://weishu.me/2016/03/07/understand-plugin-framework-ams-pms-hook/" target="_blank">14.Weishu—Android 插件化原理解析——Hook机制之AMS&amp;PMS</a><br><br><br><br>在前面的文章中我们介绍了DroidPlugin的Hook机制，也就是代理方式和Binder Hook；插件框架通过AOP实现了插件使用和开发的透明性。在讲述DroidPlugin如何实现四大组件的插件化之前，有必要说明一下它对AMS以及PMS的Hook方式。<a href="http://weishu.me/2016/03/21/understand-plugin-framework-activity-management/" target="_blank">15.Weishu—Android 插件化原理解析——Activity生命周期管理</a><br><br><br><br>之前的 Android插件化原理解析 系列文章揭开了Hook机制的神秘面纱，现在我们手握倚天屠龙，那么如何通过这种技术完成插件化方案呢？具体来说，插件中的Activity，Service等组件如何在Android系统上运行起来？<br><a href="http://weishu.me/2016/04/05/understand-plugin-framework-classloader/" target="_blank">16.Weishu—Android 插件化原理解析——插件加载机制</a><br><br><br><br>上文 Activity生命周期管理 中我们地完成了『启动没有在AndroidManifest.xml中显式声明的Activity』的任务；通过Hook AMS和拦截ActivityThread中H类对于组件调度我们成功地绕过了AndroidMAnifest.xml的限制。<br><a href="http://weishu.me/2016/04/12/understand-plugin-framework-receiver/" target="_blank">17.Weishu—Android插件化原理解析——广播的管理</a><br><br><br><br>在Activity生命周期管理 以及 插件加载机制 中我们详细讲述了插件化过程中对于Activity组件的处理方式，为了实现Activity的插件化我们付出了相当多的努力；那么Android系统的其他组件，比如BroadcastReceiver，Service还有ContentProvider，它们又该如何处理呢？<a href="http://weishu.me/2016/05/11/understand-plugin-framework-service/" target="_blank">18.Weishu—Android 插件化原理解析——Service的插件化</a><br><br><br><br>在 Activity生命周期管理 以及 广播的管理 中我们详细探讨了Android系统中的Activity、BroadcastReceiver组件的工作原理以及它们的插件化方案，相信读者已经对Android Framework和插件化技术有了一定的了解；<br><br><b>类库</b><br><br><a href="https://github.com/Qihoo360/DroidPlugin" target="_blank">1.DroidPlugin</a><br><br><br><br>是360手机助手在Android系统上实现了一种新的插件机制<a href="https://github.com/limpoxe/Android-Plugin-Framework" target="_blank">2.Android-Plugin-Framework</a><br><br><br><br>此项目是Android插件开发框架完整源码及示例。用来通过动态加载的方式在宿主程序中运行插件APK。<a href="https://github.com/wequick/Small" target="_blank">3.Small</a><br><br><br><br>世界那么大，组件那么小。Small，做最轻巧的跨平台插件化框架。里面有很详细的文档<a href="https://github.com/singwhatiwanna/dynamic-load-apk" target="_blank">4.dynamic-load-apk</a><br><br><br><br>Android 使用动态加载框架DL进行插件化开发<a href=" https://github.com/mmin18/AndroidDynamicLoader" target="_blank">5.AndroidDynamicLoader</a><br><br><br><br>Android 动态加载框架，他不是用代理 Activity 的方式实现而是用 Fragment 以及 Schema 的方式实现<a href="https://github.com/CtripMobile/DynamicAPK" target="_blank">6.DynamicAPK</a><br><br><br><br>实现Android App多apk插件化和动态加载，支持资源分包和热修复.携程App的插件化和动态加载框架.<a href="https://github.com/bunnyblue/ACDD/blob/master/README-Zh.md" target="_blank">7.ACDD</a><br><br><br>非代理Android动态部署框架<a href="https://github.com/houkx/android-pluginmgr" target="_blank">8.android-pluginmgr</a><br><br><br>不需要插件规范的apk动态加载框架。<br><b>参考视频</b><br><br><a href="http://www.infoq.com/cn/presentations/the-realization-principle-and-application-of-droidplugin" target="_blank">1.DroidPlugin的实现原理及其应用</a><br><br><br><br>Droid Plugin是360手机助手在2015年初研发的一个全新的基于Android平台的插件机制.<a href="http://v.youku.com/v_show/id_XNTMzMjYzMzM2.html" target="_blank">2.android插件化及动态部署</a><br><br><br><br> 阿里技术沙龙第十六期《android插件化及动态部署》视频  </section>
 
           
         
@@ -1647,168 +1862,6 @@ Hello, Justin
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Horace Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/07/07/hello-world/" itemprop="url">Hello Hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T01:19:08+08:00">
-                2018-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  78
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-
-
-    
-
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/07/Android-拉起通知设置界面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1937,6 +1990,168 @@ Hello, Justin
 <p>跳转到应用详情页面的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Intent localIntent = new Intent();</span><br><span class="line">              localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">              if (Build.VERSION.SDK_INT &gt;= 9) &#123;</span><br><span class="line">                  localIntent.setAction(&quot;android.settings.APPLICATION_DETAILS_SETTINGS&quot;);</span><br><span class="line">                  localIntent.setData(Uri.fromParts(&quot;package&quot;, getActivity().getPackageName(), null));</span><br><span class="line">              &#125; else if (Build.VERSION.SDK_INT &lt;= 8) &#123;</span><br><span class="line">                  localIntent.setAction(Intent.ACTION_VIEW);</span><br><span class="line">                  localIntent.setClassName(&quot;com.android.settings&quot;, &quot;com.android.settings.InstalledAppDetails&quot;);</span><br><span class="line">                  localIntent.putExtra(&quot;com.android.settings.ApplicationPkgName&quot;, getActivity().getPackageName());</span><br><span class="line">              &#125;</span><br><span class="line">              startActivity(localIntent);</span><br></pre></td></tr></table></figure></p>
 <p>对于检测app是否开启通知，同样是针对4.4以上的系统才有效:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NotificationManagerCompat manager = NotificationManagerCompat.from(App.getInstance().getContext());</span><br><span class="line">boolean isOpened = manager.areNotificationsEnabled();</span><br></pre></td></tr></table></figure></p>
 <p>4.4以下调用该方法并不会出错，只是全部返回true,默认开启状态</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/07/07/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Horace Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浩子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/07/07/hello-world/" itemprop="url">Hello Hexo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T01:19:08+08:00">
+                2018-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  78
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -2646,7 +2861,7 @@ Hello, Justin
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2765,7 +2980,7 @@ Hello, Justin
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18.6k字</span>
+  <span class="post-count">博客全站共20.0k字</span>
 </div>
 
         
