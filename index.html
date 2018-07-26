@@ -1168,7 +1168,7 @@ _   底线
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  930
+                  1,029
                 </span>
               
 
@@ -1184,7 +1184,7 @@ _   底线
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -1230,6 +1230,10 @@ _   底线
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">ps | grep com.ss.android.article.news</span><br><span class="line">cat proc/<span class="number">9839</span>/oom_adj</span><br></pre></td></tr></table></figure>
 <p><img src="/blog/2018/07/21/Android-进程状态整理和常驻service实践/2018-07-26_161744.png" alt="进程adj图"></p>
 <p>对于常驻Service，通常使用绑定托盘的方式使之成为前台service，这样的adj值会从5或者8变为2，一般是不会清理掉的。</p>
+<p>常驻Service方案除了基本的sticky之外，可以参考github上<a href="https://github.com/D-clock/AndroidDaemonService" target="_blank" rel="noopener">优雅的常驻service</a>.原理是通过设置相同的notification ID 设置前台service，stopInnerService后，原service会被认定为前台service，并且不会弹出通知栏。</p>
+<blockquote>
+<p>注意： 该方案在Android 7.1 及以上版本会弹出通知栏，这个其实是goolge里的漏洞，在Android 7.1上已经修复。</p>
+</blockquote>
 
           
         
@@ -3546,7 +3550,7 @@ Hello, Justin
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共31.2k字</span>
+  <span class="post-count">博客全站共31.3k字</span>
 </div>
 
         
