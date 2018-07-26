@@ -341,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  191
+                  189
                 </span>
               
 
@@ -382,8 +382,13 @@
           
             <p>ListView的顶部和底部怎么增加分隔线</p>
 <hr>
-<p>首先，我们先来了解ListView的两个属性以及它们的API解析<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:headerDividersEnabled:  When set to <span class="keyword">false</span>, the ListView will not draw the divider after each header view. [<span class="keyword">boolean</span>]</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:footerDividersEnabled:   When set to <span class="keyword">false</span>, the ListView will not draw the divider before each footer view. [<span class="keyword">boolean</span>]</span><br></pre></td></tr></table></figure>
+<p>首先，我们先来了解ListView的两个属性以及它们的API解析</p>
+<blockquote>
+<p>android:headerDividersEnabled:  When set to false, the ListView will not draw the divider after each header view. [boolean]</p>
+</blockquote>
+<blockquote>
+<p>android:footerDividersEnabled:   When set to false, the ListView will not draw the divider before each footer view. [boolean]</p>
+</blockquote>
 <p>可见，这里两个属性都只对HeaderView和FooterView有效，如果你没有在ListView加入HeaderView或者FooterView，无论设置什么值，都是没有作用的。</p>
 <p><img src="/blog/2018/07/26/ListView-footer-dividers/footer.jpg" alt="footer"></p>
 <p>那么，如何为listview设置顶部和底部的间隔线呢，是不是要为listiew的每一个item在布局中设置分割线呢？</p>

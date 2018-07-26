@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-26T12:12:15.231Z</updated>
+  <updated>2018-07-26T12:57:21.407Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/07/26/ListView-footer-dividers/"/>
     <id>http://yoursite.com/2018/07/26/ListView-footer-dividers/</id>
     <published>2018-07-26T05:59:57.000Z</published>
-    <updated>2018-07-26T12:12:15.231Z</updated>
+    <updated>2018-07-26T12:57:21.407Z</updated>
     
-    <content type="html"><![CDATA[<p>ListView的顶部和底部怎么增加分隔线</p><hr><p>首先，我们先来了解ListView的两个属性以及它们的API解析<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:headerDividersEnabled:  When set to <span class="keyword">false</span>, the ListView will not draw the divider after each header view. [<span class="keyword">boolean</span>]</span><br></pre></td></tr></table></figure></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:footerDividersEnabled:   When set to <span class="keyword">false</span>, the ListView will not draw the divider before each footer view. [<span class="keyword">boolean</span>]</span><br></pre></td></tr></table></figure><p>可见，这里两个属性都只对HeaderView和FooterView有效，如果你没有在ListView加入HeaderView或者FooterView，无论设置什么值，都是没有作用的。</p><p><img src="/blog/2018/07/26/ListView-footer-dividers/footer.jpg" alt="footer"></p><p>那么，如何为listview设置顶部和底部的间隔线呢，是不是要为listiew的每一个item在布局中设置分割线呢？</p><p>这里列举一种比较简单的办法：</p><p>在xml中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:headerDividersEnabled=<span class="string">"true"</span></span><br><span class="line">android:footerDividersEnabled=<span class="string">"true"</span></span><br></pre></td></tr></table></figure></p><p>在代码中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listView.addHeaderView(<span class="keyword">new</span> View(<span class="keyword">this</span>));</span><br><span class="line">listView.addFooterView(<span class="keyword">new</span> View(<span class="keyword">this</span>));</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<p>ListView的顶部和底部怎么增加分隔线</p><hr><p>首先，我们先来了解ListView的两个属性以及它们的API解析</p><blockquote><p>android:headerDividersEnabled:  When set to false, the ListView will not draw the divider after each header view. [boolean]</p></blockquote><blockquote><p>android:footerDividersEnabled:   When set to false, the ListView will not draw the divider before each footer view. [boolean]</p></blockquote><p>可见，这里两个属性都只对HeaderView和FooterView有效，如果你没有在ListView加入HeaderView或者FooterView，无论设置什么值，都是没有作用的。</p><p><img src="/blog/2018/07/26/ListView-footer-dividers/footer.jpg" alt="footer"></p><p>那么，如何为listview设置顶部和底部的间隔线呢，是不是要为listiew的每一个item在布局中设置分割线呢？</p><p>这里列举一种比较简单的办法：</p><p>在xml中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:headerDividersEnabled=<span class="string">"true"</span></span><br><span class="line">android:footerDividersEnabled=<span class="string">"true"</span></span><br></pre></td></tr></table></figure></p><p>在代码中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listView.addHeaderView(<span class="keyword">new</span> View(<span class="keyword">this</span>));</span><br><span class="line">listView.addFooterView(<span class="keyword">new</span> View(<span class="keyword">this</span>));</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
@@ -31,7 +31,9 @@
       
         &lt;p&gt;ListView的顶部和底部怎么增加分隔线&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;首先，我们先来了解ListView的两个属性以及它们的API解析&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+&lt;p&gt;首先，我们先来了解ListView的两个属性以及它们的API解析&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;android:headerDividersEnabled:  When set to false,
       
     
     </summary>
