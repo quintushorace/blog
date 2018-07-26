@@ -89,15 +89,15 @@
 <meta property="og:site_name" content="浩子">
 <meta property="og:description" content="第 16 章 反射（Reflection）2016-09-29 转自：https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md Java 提供的反射机制允许您于执行时期动态加载类别、检视类别信息、生成对象或操作生成的对象，要举反射机制的一个应用实例，就是在集成开发环境中所提供的方法提示或是类别检视工具，另外像 JSP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-01.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-02.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-03.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/11/images/img16-04.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/11/Java-反射机制/images/img16-01.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/11/Java-反射机制/images/img16-02.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/11/Java-反射机制/images/img16-03.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/11/Java-反射机制/images/img16-04.png">
 <meta property="og:updated_time" content="2018-07-11T08:22:24.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 反射机制">
 <meta name="twitter:description" content="第 16 章 反射（Reflection）2016-09-29 转自：https://github.com/JustinSDK/JavaSE6Tutorial/blob/master/docs/CH16.md Java 提供的反射机制允许您于执行时期动态加载类别、检视类别信息、生成对象或操作生成的对象，要举反射机制的一个应用实例，就是在集成开发环境中所提供的方法提示或是类别检视工具，另外像 JSP">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/11/images/img16-01.png">
+<meta name="twitter:image" content="http://yoursite.com/blog/2018/07/11/Java-反射机制/images/img16-01.png">
 
 
 
@@ -419,7 +419,7 @@
 生成TestClass实例
 </code></pre><p>从执行结果中可以看出，宣告参考名称并不导致 TestClass 类别被加载，而是在使用 “new” 生成对象时才会加载类别。</p>
 <p>Class 的讯息是在编译时期就被加入至 .class 档案中，这是 Java 支持执行时期型别辨识（RTTI，Run-Time Type Information或Run-Time Type Identification）的一种方式，在编译时期编译程序会先检查对应的 .class 档案，而执行时期JVM在使用某类别时，会先检查对应的 Class 对象是否已经加载，如果没有加载，则会寻找对应的 .class 档案并载入，一个类别在 JVM 中只会有一个 Class 实例，每个类别的实例都会记得自己是由哪个 Class 实例所生成，您可以使用 getClass() 或 .class 来取得 Class 实例。</p>
-<p><img src="../images/img16-01.png" alt="每个对象会记得生成它的 Class 实例"></p>
+<p><img src="/blog/2018/07/11/Java-反射机制/images/img16-01.png" alt="每个对象会记得生成它的 Class 实例"></p>
 <p>图 16.1 每个对象会记得生成它的 Class 实例</p>
 <p>在 Java 中，数组也是一个对象，也有其对应的 Class 实例，这个对象是由具相同元素与维度的数组所共享，而基本型态像是 boolean, byte, char, short, int, long, float, double 以及关键词 void，也都有对应的 Class 对象，您可以用类别常量（Class literal）来取得这些对象。</p>
 <h4 id="范例-16-4-ClassDemo2-java"><a href="#范例-16-4-ClassDemo2-java" class="headerlink" title="范例 16.4  ClassDemo2.java"></a><strong>范例 16.4  ClassDemo2.java</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> onlyfun.caterpillar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">boolean</span>.class);</span><br><span class="line">        System.out.println(<span class="keyword">void</span>.class);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] iarr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        System.out.println(iarr.getClass().toString());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span>[] darr = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">10</span>];</span><br><span class="line">        System.out.println(darr.getClass().toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -487,7 +487,7 @@ public class java.util.ArrayList {
 <p>当您在文本模式下执行 java XXX 指令后，java 执行程序会尝试找到 JRE 安装的所在目录，然后寻找 jvm.dll（默认是在JRE目录下bin\client目录中），接着启动 JVM 并进行初始化动作，接着产生 Bootstrap Loader，Bootstrap Loader 会加载 Extended Loader，并设定 Extended Loader 的 parent 为 Bootstrap Loader，接着 Bootstrap Loader 会加载 System Loader，并将 System Loader 的 parent 设定为 Extended Loader。</p>
 <p>Bootstrap Loader 通常由 C 撰写而成；Extended Loader 是由 Java 所撰写而成，实际是对应于 sun.misc.Launcher\$ExtClassLoader（Launcher 中的内部类别）；System Loader 是由 Java 撰写而成，实际对应于sun.misc. Launcher\$AppClassLoader（Launcher 中的内部类别）。</p>
 <p>图 16.2 是 java 程序启动与加载类别的顺序图，也就是所谓的「类别加载器阶层架构」。</p>
-<p><img src="../images/img16-02.png" alt="Java 类别加载器阶层架构"></p>
+<p><img src="/blog/2018/07/11/Java-反射机制/images/img16-02.png" alt="Java 类别加载器阶层架构"></p>
 <p>图 16.2 Java 类别加载器阶层架构</p>
 <p>Bootstrap Loader 会搜寻系统参数 sun.boot.class.path 中指定位置的类别，默认是 JRE  classes 下之  档案，或 lib 目录下 .jar 档案中（例如 rt.jar）的类别并加载，您可以使用 System.getProperty(“sun.boot.class.path”) 陈述来显示 sun.boot.class.path 中指定的路径，例如在我的计算机中显示的是以下的路径：</p>
 <pre><code>C:\Program Files\Java\jre1.5.0_03\lib\rt.jar;
@@ -503,7 +503,7 @@ C:\Program Files\Java\jre1.5.0_03\classes
 <pre><code>java –cp ./classes SomeClass
 </code></pre><p>Bootstrap Loader 会在 JVM 启动之后产生，之后它会加载 Extended Loader 并将其 parent 设为 Bootstrap Loader，然后 Bootstrap Loader 再加载 System Loader 并将其 parent 设定为 ExtClassLoader，接着 System Loader 开始加载您指定的类别，在加载类别时，每个类别加载器会先将加载类别的任务交由其 parent，如果 parent 找不到，才由自己负责加载，所以在加载类别时，会以 Bootstrap Loader→Extended Loader→System Loader 的顺序来寻找类别，如果都找不到，就会丢出 NoClassDefFoundError。</p>
 <p>类别加载器在 Java 中是以 java.lang.ClassLoader 型态存在，每一个类别被载入后，都会有一个 Class 的实例来代表，而每个 Class 的实例都会记得自己是由哪个 ClassLoader 加载的，可以由 Class 的 getClassLoader() 取得加载该类别的 ClassLoader，而从 ClassLoader 的 getParent() 方法可以取得自己的 parent，图 16.3 显示了一个自定义的 SomeClass 实例与 Class、ClassLoader 及各 parent 的关系。</p>
-<p><img src="../images/img16-03.png" alt="对象、Class、ClassLoader 与 parent 的关系"></p>
+<p><img src="/blog/2018/07/11/Java-反射机制/images/img16-03.png" alt="对象、Class、ClassLoader 与 parent 的关系"></p>
 <p>图 16.3 对象、Class、ClassLoader 与 parent 的关系</p>
 <p>范例 16.11 示范了图 16.3 的一个实际例子。</p>
 <h4 id="范例-16-11-SomeClass-java"><a href="#范例-16-11-SomeClass-java" class="headerlink" title="范例 16.11  SomeClass.java"></a><strong>范例 16.11  SomeClass.java</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> onlyfun.caterpillar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 建立SomeClass实例</span></span><br><span class="line">        SomeClass some = <span class="keyword">new</span> SomeClass();</span><br><span class="line">        <span class="comment">// 取得SomeClass的Class实例</span></span><br><span class="line">        Class c = some.getClass();</span><br><span class="line">        <span class="comment">// 取得ClassLoader</span></span><br><span class="line">        ClassLoader loader = c.getClassLoader();</span><br><span class="line">        System.out.println(loader);</span><br><span class="line">        <span class="comment">// 取得父ClassLoader</span></span><br><span class="line">        System.out.println(loader.getParent());</span><br><span class="line">        <span class="comment">// 再取得父ClassLoader</span></span><br><span class="line">        System.out.println(loader.getParent().getParent());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -544,7 +544,7 @@ Class c = urlClassLoader.loadClass(&quot;SomeClass&quot;);
 </code></pre><p>由于 ClassLoader 是 Java SE 的标准API之一，可以在 rt.jar 中找到，因而会由 Bootstrap Loader 来载入 ClassLoader 类别，在新增了 ClassLoader 实例后，您可以使用它的 loadClass() 方法来指定要加载的类别名称，在新增 ClassLoader 时，会自动将新建的 ClassLoader 的 parent 设定为 AppClassLoader，并在每次加载类别时，先委托 parent 代为搜寻，所以上例中搜寻 SomeClass 类别时，会一路往上委托至 Bootstrap Loader 先开始搜寻，接着是 ExtClassLoader、AppClassLoader，如果都找不到，才使用新建的 ClassLoader 搜寻。</p>
 <p>Java 的类别加载器阶层架构除了可以达到动态加载类别目的之外，还有着安全上的考虑，首先，因为每次寻找类别时都是委托 parent 开始寻找，所以除非有人可以侵入您的计算机，置换掉标准 Java SE API 与您自己安装的延伸套件，否则是不可能藉由撰写自己的类别加载器来载入恶意类别，以置换掉标准 Java SE API与您自己安装的延伸套件。</p>
 <p>由于每次的类别载入是由子 ClassLoader 委托父 ClassLoader 先尝试加载，但父 lassLoader 看不到子 ClassLoader，所以同一阶层的子 ClassLoader 不会被误用，从而避免了加载错误类别的可能性，例如在图 16.4 中，您想从 YourClassLoader 来加载类别的话，类别加载器阶层不会看到 MaliciousClassLoader。</p>
-<p><img src="../images/img16-04.png" alt="类别加载器阶层的安全设计"></p>
+<p><img src="/blog/2018/07/11/Java-反射机制/images/img16-04.png" alt="类别加载器阶层的安全设计"></p>
 <p>图 16.4 类别加载器阶层的安全设计</p>
 <p>由同一个 ClassLoader 加载的类别档案，会只有一份Class实例，如果同一个类别档案是由两个不同的ClassLoader 载入，则会有两份不同的 Class 实例。注意这个说法，如果有两个不同的 ClassLoader 搜寻同一个类别，而在 parent 的 AppClassLoader 搜寻路径中就可以找到指定类别的话，则 Class 实例就只会有一个，因为两个不同的 ClassLoader 都是在委托父 ClassLoader 时找到该类别的，如果父 ClassLoader 找不到，而是由各自的 ClassLoader 搜寻到，则 Class 的实例会有两份。</p>
 <p>范例 16.13 是个简单的示范，可用来测试加载路径与Class实例是否为同一对象。</p>
@@ -824,7 +824,7 @@ Hello, Justin
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -846,7 +846,7 @@ Hello, Justin
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -988,7 +988,7 @@ Hello, Justin
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.1k字</span>
+  <span class="post-count">博客全站共25.4k字</span>
 </div>
 
         

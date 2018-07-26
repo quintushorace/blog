@@ -88,10 +88,14 @@
 <meta property="og:site_name" content="浩子">
 <meta property="og:description" content="lowmeorykiller中进程的分类以及各类进程的adj值 在Android的lowmemroykiller机制中，会对于所有进程进行分类，对于每一类别的进程会有其oom_adj值的取值范围，oom_adj值越高则代表进程越不重要，在系统执行低杀操作时，会从oom_adj值越高的开始杀。系统lowmemeorykiller机制下对于进程的级别的以变量的形式定义在framework/base/c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T02:26:59.357Z">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/21/Android-进程状态整理和常驻service实践/process.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/21/Android-进程状态整理和常驻service实践/2018-07-26_161152.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/07/21/Android-进程状态整理和常驻service实践/2018-07-26_161744.png">
+<meta property="og:updated_time" content="2018-07-26T08:19:50.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 进程状态整理和常驻service实践">
 <meta name="twitter:description" content="lowmeorykiller中进程的分类以及各类进程的adj值 在Android的lowmemroykiller机制中，会对于所有进程进行分类，对于每一类别的进程会有其oom_adj值的取值范围，oom_adj值越高则代表进程越不重要，在系统执行低杀操作时，会从oom_adj值越高的开始杀。系统lowmemeorykiller机制下对于进程的级别的以变量的形式定义在framework/base/c">
+<meta name="twitter:image" content="http://yoursite.com/blog/2018/07/21/Android-进程状态整理和常驻service实践/process.png">
 
 
 
@@ -327,7 +331,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  868
+                  930
                 </span>
               
 
@@ -366,7 +370,7 @@
       
         <p>lowmeorykiller中进程的分类以及各类进程的adj值</p>
 <pre><code>在Android的lowmemroykiller机制中，会对于所有进程进行分类，对于每一类别的进程会有其oom_adj值的取值范围，oom_adj值越高则代表进程越不重要，在系统执行低杀操作时，会从oom_adj值越高的开始杀。系统lowmemeorykiller机制下对于进程的级别的以变量的形式定义在framework/base/core/java/com/android/server/am/ProcessList.java类中，可总结成下表：
-</code></pre><p>图片 [/blog/images/process.png]</p>
+</code></pre><p><img src="/blog/2018/07/21/Android-进程状态整理和常驻service实践/process.png" alt="进程图"></p>
 <p>再补充介绍一下：</p>
 <p>1.AMS角度对于进程的分级       </p>
 <p>上表带分级只是从lowmemroykiller角度来分的，时用于lowmemeorykiller执行杀进程操作，但是从android的系统管理角度看，即是从AMS执行相关逻辑时，又有一套自己的分级机制，当然这两套机制也有着很多互通的点。AMS角度的级别划分以变量的形式定义在framework/base/core/java/android/app/ActivityManager.java类中，以PROCESS_STATE开头的变量。</p>
@@ -381,7 +385,12 @@
 </code></pre><p>4.perceptible的标准</p>
 <pre><code>perceptible名为可感知的进程，但并不是说能够感知到进程就一定表示该进程属于perveptible进程，比如播放音乐的进程活着状态栏上有通知的进程，虽然能够感知到进程的存在，但是不代表进程一定时perceptible类别的进程。决定该进程是否属于perceptible进程并未进程的可感知性，而是该进程的服务是否执行了startForeground动作。
 </code></pre><p>使用命令可以打出进程所属service的状态信息：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys activity services com.coolwind.weather</span><br></pre></td></tr></table></figure>
+<p>以今日头条为例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys activity services com.ss.android.article.news</span><br></pre></td></tr></table></figure>
+<p><img src="/blog/2018/07/21/Android-进程状态整理和常驻service实践/2018-07-26_161152.png" alt="服务图"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">ps | grep com.ss.android.article.news</span><br><span class="line">cat proc/<span class="number">9839</span>/oom_adj</span><br></pre></td></tr></table></figure>
+<p><img src="/blog/2018/07/21/Android-进程状态整理和常驻service实践/2018-07-26_161744.png" alt="进程adj图"></p>
+<p>对于常驻Service，通常使用绑定托盘的方式使之成为前台service，这样的adj值会从5或者8变为2，一般是不会清理掉的。</p>
 
       
     </div>
@@ -418,6 +427,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/07/26/ListView-footer-dividers/" rel="prev" title="ListView footer dividers">
+                ListView footer dividers <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -521,7 +534,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -669,7 +682,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.1k字</span>
+  <span class="post-count">博客全站共25.4k字</span>
 </div>
 
         
