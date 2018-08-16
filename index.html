@@ -319,7 +319,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  676
+                  664
                 </span>
               
 
@@ -358,8 +358,7 @@
       
         
           
-            <h1 id="TEST-ONLY-导致apk无法安装问题解决"><a href="#TEST-ONLY-导致apk无法安装问题解决" class="headerlink" title="TEST_ONLY 导致apk无法安装问题解决"></a>TEST_ONLY 导致apk无法安装问题解决</h1><hr>
-<p>升级到7.0，android studio升级到3.0后经常出下如下异常，导致apk无法正常安装，放到手机sd卡中也无法完成安装，会提示安装失败：</p>
+            <p>升级到7.0，android studio升级到3.0后经常出下如下异常，导致apk无法正常安装，放到手机sd卡中也无法完成安装，会提示安装失败：</p>
 <p><img src="/blog/2018/08/16/TEST-ONLY-导致apk无法安装问题解决/adb.png" alt="adb命令行"></p>
 <p>通过如下命令可以完成安装：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -t *.APK</span><br></pre></td></tr></table></figure></p>
 <h3 id="但是导致问题的原因在哪里呢？"><a href="#但是导致问题的原因在哪里呢？" class="headerlink" title="但是导致问题的原因在哪里呢？"></a>但是导致问题的原因在哪里呢？</h3><p>网上有说是manifest中配置了testOnly标签的：</p>
