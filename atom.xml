@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-26T13:05:26.719Z</updated>
+  <updated>2018-08-16T06:11:48.459Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TEST_ONLY 导致apk无法安装问题解决</title>
+    <link href="http://yoursite.com/2018/08/16/TEST-ONLY-%E5%AF%BC%E8%87%B4apk%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>http://yoursite.com/2018/08/16/TEST-ONLY-导致apk无法安装问题解决/</id>
+    <published>2018-08-16T05:50:55.000Z</published>
+    <updated>2018-08-16T06:11:48.459Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TEST-ONLY-导致apk无法安装问题解决"><a href="#TEST-ONLY-导致apk无法安装问题解决" class="headerlink" title="TEST_ONLY 导致apk无法安装问题解决"></a>TEST_ONLY 导致apk无法安装问题解决</h1><hr><p>升级到7.0，android studio升级到3.0后经常出下如下异常，导致apk无法正常安装，放到手机sd卡中也无法完成安装，会提示安装失败：</p><p><img src="/blog/2018/08/16/TEST-ONLY-导致apk无法安装问题解决/adb.png" alt="adb命令行"></p><p>通过如下命令可以完成安装：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -t *.APK</span><br></pre></td></tr></table></figure></p><h3 id="但是导致问题的原因在哪里呢？"><a href="#但是导致问题的原因在哪里呢？" class="headerlink" title="但是导致问题的原因在哪里呢？"></a>但是导致问题的原因在哪里呢？</h3><p>网上有说是manifest中配置了testOnly标签的：</p><p><img src="/blog/2018/08/16/TEST-ONLY-导致apk无法安装问题解决/testOnly.png" alt="网络上问题原因"></p><p>然而实际上，真正的原因是什么呢？<br>看看官方的说明吧：<br><a href="https://developer.android.com/studio/run/index.html" target="_blank" rel="noopener">https://developer.android.com/studio/run/index.html</a></p><blockquote><p>Note: The Run button builds an APK with testOnly=”true”, which means the APK can only be installed via adb (which Android Studio uses). If you want a debuggable APK that people can install without adb, select your debug variant and click Build &gt; Build APK(s).</p></blockquote><p><strong>大致意思就是说，只要在AndroidStudio3.0内，点击运行Run，跑出来的apk，一定是TEST_ONLY的，如果需要可以安装的apk，直接使用build apks或者assembleRelease即可。</strong></p><p>以下转载自 <a href="http://blog.sina.com.cn/s/blog_6cbd24890102x0ki.html" target="_blank" rel="noopener">沈文昌同学的blog</a></p><p>之前有个问题涉及到生成apk无法安装。当时搜索到的结果是和gradle版本有关，实际上不是这样的。</p><p>今天测试妹妹要一个apk，我直接run了一个给她，发现问题又出现了。</p><p>我首先怀疑是不是Instant Run的配置，但这个配置我在settings里是关掉的，而Run功能（绿三角）的Configurations里，Android App-&gt;app中，右侧最下方Before launch，配置了一个Instant App Provision。我将这个配置直接删掉，问题依旧。</p><p>看来不是Instant Run的锅。</p><p>然后，开始怀疑是否是gradle版本不可为最新，尝试下载了升级AS3.0默认配的4.0-milestone-1，以及4.1，以及4.1-milestone-1，花费了很多时间，最后发现也不是gradle版本问题。</p><p>最终，在一个曾经看过的帖子上，发现了另一个回答。</p><p><a href="https://stackoverflow.com/questions/25274296/adb-install-fails-with-install-failed-test-only" target="_blank" rel="noopener">https://stackoverflow.com/questions/25274296/adb-install-fails-with-install-failed-test-only</a></p><p>往下翻，有个只有个位数支持率的回答，里面提到官方网站在beta7版本已经有了提示： <a href="https://developer.android.com/studio/run/index.html" target="_blank" rel="noopener">https://developer.android.com/studio/run/index.html</a></p><p>这个网站我是打不开的……好吧，这位好心人直接把主要内容粘贴了：</p><blockquote><p>Note: The Run button builds an APK with testOnly=”true”, which means the APK can only be installed via adb (which Android Studio uses). If you want a debuggable APK that people can install without adb, select your debug variant and click Build &gt; Build APK(s).</p></blockquote><p>也就是说，只要在AndroidStudio3.0内，点击绿三角运行Run，跑出来的apk，一定是TEST_ONLY的。</p><p>问题解决，以后给测试妹妹出apk，不能直接用Run出来的了，必须跑一下Build Apks。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;TEST-ONLY-导致apk无法安装问题解决&quot;&gt;&lt;a href=&quot;#TEST-ONLY-导致apk无法安装问题解决&quot; class=&quot;headerlink&quot; title=&quot;TEST_ONLY 导致apk无法安装问题解决&quot;&gt;&lt;/a&gt;TEST_ONLY 导致apk无法
+      
+    
+    </summary>
+    
+    
+      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+    
+  </entry>
   
   <entry>
     <title>markdown 语法</title>
@@ -258,29 +281,6 @@
   </entry>
   
   <entry>
-    <title>Hello Hexo</title>
-    <link href="http://yoursite.com/2018/07/07/hello-world/"/>
-    <id>http://yoursite.com/2018/07/07/hello-world/</id>
-    <published>2018-07-06T17:19:08.000Z</published>
-    <updated>2018-07-06T17:29:33.119Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-      <category term="blogs" scheme="http://yoursite.com/tags/blogs/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Android 拉起通知设置界面</title>
     <link href="http://yoursite.com/2018/07/07/Android-%E6%8B%89%E8%B5%B7%E9%80%9A%E7%9F%A5%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2/"/>
     <id>http://yoursite.com/2018/07/07/Android-拉起通知设置界面/</id>
@@ -302,6 +302,29 @@
     
     
       <category term="android" scheme="http://yoursite.com/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello Hexo</title>
+    <link href="http://yoursite.com/2018/07/07/hello-world/"/>
+    <id>http://yoursite.com/2018/07/07/hello-world/</id>
+    <published>2018-07-06T17:19:08.000Z</published>
+    <updated>2018-07-06T17:29:33.119Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+      <category term="blogs" scheme="http://yoursite.com/tags/blogs/"/>
     
   </entry>
   
