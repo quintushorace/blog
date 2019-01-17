@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="浩子" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="dex学习和探究一．    Dex是什么 Dex (Dalvik Executable Format)是java中存储类定义和相关联数据的一种数据格式，主要用于保存类定义及其关联的辅助数据 .dex结构分成三部分:文件头:表明了是dex文件，已经文件的大小等等数据索引头:如下图所示数据区：数据区,就像是jvm中的堆保存方法+变量。 下面是dex的数据格式：  odex简介odex是Optimize">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dex学习和探究">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/dex学习和探究/index.html">
+<meta property="og:site_name" content="浩子">
+<meta property="og:description" content="dex学习和探究一．    Dex是什么 Dex (Dalvik Executable Format)是java中存储类定义和相关联数据的一种数据格式，主要用于保存类定义及其关联的辅助数据 .dex结构分成三部分:文件头:表明了是dex文件，已经文件的大小等等数据索引头:如下图所示数据区：数据区,就像是jvm中的堆保存方法+变量。 下面是dex的数据格式：  odex简介odex是Optimize">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/data.jpg">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/verify.jpg">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/load1.jpg">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/load2.jpg">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/gdt.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/tqy-1.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/tqy-2.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/tqy-3.png">
+<meta property="og:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/tqy-4.png">
+<meta property="og:updated_time" content="2018-12-25T12:54:29.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="dex学习和探究">
+<meta name="twitter:description" content="dex学习和探究一．    Dex是什么 Dex (Dalvik Executable Format)是java中存储类定义和相关联数据的一种数据格式，主要用于保存类定义及其关联的辅助数据 .dex结构分成三部分:文件头:表明了是dex文件，已经文件的大小等等数据索引头:如下图所示数据区：数据区,就像是jvm中的堆保存方法+变量。 下面是dex的数据格式：  odex简介odex是Optimize">
+<meta name="twitter:image" content="http://yoursite.com/blog/2018/12/25/dex学习和探究/data.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/25/dex学习和探究/"/>
+
+
+
+
+
+  <title>dex学习和探究 | 浩子</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+      <a href="https://github.com/quintushorace" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">浩子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学无止境</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/25/dex学习和探究/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Horace Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浩子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">dex学习和探究</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T19:21:08+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2018/12/25/dex学习和探究/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/2018/12/25/dex学习和探究/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,769
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="dex学习和探究"><a href="#dex学习和探究" class="headerlink" title="dex学习和探究"></a>dex学习和探究</h3><p><strong>一．    Dex是什么</strong></p>
+<p>Dex (Dalvik Executable Format)是java中存储类定义和相关联数据的一种数据格式，主要用于保存类定义及其关联的辅助数据</p>
+<p>.dex结构分成三部分:<br><strong>文件头</strong>:表明了是dex文件，已经文件的大小等等数据<br><strong>索引头</strong>:如下图所示<br><strong>数据区</strong>：数据区,就像是jvm中的堆保存方法+变量。</p>
+<p>下面是dex的数据格式：<br><img src="/blog/2018/12/25/dex学习和探究/data.jpg" alt="数据格式"></p>
+<blockquote>
+<p><strong>odex简介</strong><br>odex是OptimizedDEX的缩写,表示对dex的优化。系统预置应用经常会采用odex的方式加载，一般存放在/data/dalvik-cache目录下。</p>
+<p>由于Android程序的apk文件为zip压缩包格式，Dalvik虚拟机每次加载它们时需要从apk中读取classes.dex文件，这样会耗费很多cpu时间，而采用odex方式优化的dex文件，已经包含了加载dex必须的依赖库文件列表，Dalvik虚拟机只需检测并加载所需的依赖库即可执行相应的dex文件，这大大缩短了读取dex文件所需的时间。</p>
+<p>不过，这个优化过程会根据不同设备上Dalvik虚拟机的版本、Framework库的不同等因素而不同。在一台设备上被优化过的ODEX文件，拷贝到另一台设备上不一定能够运行。</p>
+</blockquote>
+<p><strong>二．    Dex的加载流程</strong></p>
+<p>&emsp;&emsp; Android提供了一个专门验证与优化dex文件的工具dexopt。其源码位于Android系统源码的dalvik/dexopt目录下，Dalvik虚拟机在加载一个dex文件时，通过指定的验证与优化选项来调用dexopt进行相应的验证与优化操作。<a href="https://blog.csdn.net/jltxgcy/article/details/50552674" target="_blank" rel="noopener">具体加载流程参考</a></p>
+<p><img src="/blog/2018/12/25/dex学习和探究/verify.jpg" alt="加载验证"></p>
+<p>&emsp;&emsp; 简要总结下整个的加载流程，首先是对文件名的修正，后缀名置为”.dex”作为输出文件，然后生个一个DexPathList对象函数直接返回一个DexPathList对象，</p>
+<p>&emsp;&emsp; 在DexPathList的构造函数中调用makeDexElements()函数，在makeDexElement()函数中调用loadDexFile()开始对.dex或者是.jar .zip .apk文件进行处理，跟入loadDexFile()函数中，会发现里面做的工作很简单，调用optimizedPathFor()函数对optimizedDiretcory路径进行修正。</p>
+<p><img src="/blog/2018/12/25/dex学习和探究/load1.jpg" alt="加载验证"><br>&emsp;&emsp; 之后才真正通过DexFile.loadDex()开始加载文件中的数据，其中的加载也只是返回一个DexFile对象。</p>
+<p>&emsp;&emsp; 在DexFile类的构造函数中，重点便放在了其调用的openDexFile()函数，在openDexFile()中调用了openDexFileNative()真正进入native层，在openDexFileNative()的真正实现中，对于后缀名为.dex的文件或者其他文件(.jar .apk .zip)分开进行处理：</p>
+<p>&emsp;&emsp; .dex文件调用dvmRawDexFileOpen()；<br>&emsp;&emsp; 其他文件调用dvmJarFileOpen()。</p>
+<p><img src="/blog/2018/12/25/dex学习和探究/load2.jpg" alt="加载dex"></p>
+<p>&emsp;&emsp; 在dvmRawDexFileOpen()函数中，检验dex文件的标志，检验odex文件的缓存名称，之后将dex文件拷贝到odex文件中，并对odex进行优化。</p>
+<p>&emsp;&emsp; 调用dvmDexFileOpenFromFd()对优化后的odex文件进行映射，通过mprotect置为”只读”属性并将映射的内存结构保存在DvmDex*结构中。</p>
+<p>&emsp;&emsp; dvmJarFileOpen()先对文件进行映射，结构保存在ZipArchive中，然后再尝试以文件名作为dex文件名来“打开”文件，如果失败，则调用dexZipFindEntry在ZipArchive的名称hash表中找名为”class.dex”的文件,然后创建odex文件，下面就和dvmRawDexFileOpen()一样了，就是对dex文件进行优化和映射。</p>
+<p>最关键的loadDexFile和optimizedPathFor方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">private static DexFile loadDexFile(File file, File optimizedDirectory)</span><br><span class="line">            throws IOException &#123;</span><br><span class="line">        if (optimizedDirectory == null) &#123;</span><br><span class="line">            return new DexFile(file);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            String optimizedPath = optimizedPathFor(file, optimizedDirectory);</span><br><span class="line">            return DexFile.loadDex(file.getPath(), optimizedPath, 0);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//生成odex的目录</span><br><span class="line">private static String optimizedPathFor(File path,</span><br><span class="line">            File optimizedDirectory) &#123;</span><br><span class="line">        String fileName = path.getName();</span><br><span class="line">        if (!fileName.endsWith(DEX_SUFFIX)) &#123;</span><br><span class="line">            int lastDot = fileName.lastIndexOf(&quot;.&quot;);</span><br><span class="line">            if (lastDot &lt; 0) &#123;</span><br><span class="line">                fileName += DEX_SUFFIX;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                StringBuilder sb = new StringBuilder(lastDot + 4);</span><br><span class="line">                sb.append(fileName, 0, lastDot);</span><br><span class="line">                sb.append(DEX_SUFFIX);</span><br><span class="line">                fileName = sb.toString();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        File result = new File(optimizedDirectory, fileName);</span><br><span class="line">        return result.getPath();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp; optimizedPathFor 方法：就是将dex 优化形成optimizedDex文件。然后<br>通过DexFile的静态方法将.dex文件。或者apk，.jar加载成DexFile文件。DexFile 是C语言中的结构体，里面保存的都是一些指针。经过不断的校检，最后通过dvm里面的c代码处理，得到DexFile。</p>
+<p><strong>三．    Dex的应用场景</strong><br>&emsp;&emsp;  结合dex的支持动态加载的特性，dex通常被用于以下场合：</p>
+<ol>
+<li><p><strong>MultiDex分包</strong>： 拆分dex，可以解决方法数超过65535导致的编译问题。也支持分包后再Application的onCreate()方法中调用 <strong>MultiDex.install(this)</strong>来加载不同的dex包。</p>
+<blockquote>
+<p>可以用于解决2.3上无法安装问题<br> INSTALL_FAILED_DEXOPT</p>
+</blockquote>
+<blockquote>
+<p>可以解决方法数过多问题：<br> Conversion to Dalvik format failed:Unable to execute dex: method ID not in [0, 0xffff]: 65536</p>
+</blockquote>
+</li>
+<li><p><strong>应用热更新</strong>： 参考腾讯的<a href="https://github.com/Tencent/tinker" target="_blank" rel="noopener">tinker</a>方案。tinker的核心思想是利用DexDiff算法对比差异生成Patch补丁包，全量合成新Dex进行整体替换。这里面就涉及到dex的具体加载过程中，很重要的一个特点，在DexPathList加载类时，会遍历dexElements数组，ClassLoader在加载到正确的类之后就会停止加载此类，基于这个原理，可以用来做应用的局部热更新。tinker是在这个基础上增加了差量包的定义，引入了自定义的 <a href="https://www.jianshu.com/p/af784b20cee5" target="_blank" rel="noopener">dexdiff算法</a>。</p>
+</li>
+<li><p><strong>插件化</strong>：动态加载模块，参见于广点通sdk方案。将包含dex的jar放到asset目录下，动态加载函数类，而不用安装独立的应用。该方案可以用于广告sdk，应用插件等开发，采用动态加载dex，通常会将dex文件下载放置于data目录而不是sd卡目录（sd卡不安全），并且采用加密算法进行dex的内部加密，支持动态下载更新dex文件，提升了代码破解难度，增加了apk的运维可能。</p>
+<p><img src="/blog/2018/12/25/dex学习和探究/gdt.png" alt="广点通动态加载"></p>
+</li>
+</ol>
+<ol start="4">
+<li><strong>应用加固和脱壳</strong>： 这方面没有过多涉猎，有空可以学习下<a href="https://blog.csdn.net/mergerly/article/details/62045535" target="_blank" rel="noopener">mergerly整理的加固脱壳方法</a></li>
+</ol>
+<p><strong>四．    Dex方案的优劣</strong></p>
+<p>&emsp;&emsp;可能带来的问题：</p>
+<ol>
+<li><p>MultiDex分包可能增加进入耗时，dex文件不能过大，否则容易在进入加载dex时出现anr或异常。</p>
+</li>
+<li><p>可能引入一些加载异常：</p>
+<blockquote>
+<p>ClassNotFoundException: Didn’t find class “com.squareup.picasso.Picasso” on path: DexPathList[[zip file “/data/app/com.groupon.dexlazyload-1/base.apk”]</p>
+</blockquote>
+</li>
+<li><p>增加了<a href="https://www.cnblogs.com/goodhacker/p/5152952.html" target="_blank" rel="noopener">代码注入和应用劫持的风险</a></p>
+</li>
+</ol>
+<p>&emsp;&emsp;优点：</p>
+<ol>
+<li><p>支持热更新和热修复，避免整体apk更新带来的流量问题和迭代问题。</p>
+</li>
+<li><p>支持dex加固，一定程度上增加了apk被反编译破解带来的风险。</p>
+</li>
+<li><p>允许动态加载指定的dex内的函数。</p>
+</li>
+</ol>
+<p><strong>五．    tqy dex加载分析</strong><br>&emsp;&emsp; tqy sdk的初始化中会调用initSdk，</p>
+<p>&emsp;&emsp;校验文件：<br>  <img src="/blog/2018/12/25/dex学习和探究/tqy-1.png" alt="tqy加载"></p>
+<p>  &emsp;&emsp;加载dex<br>  <img src="/blog/2018/12/25/dex学习和探究/tqy-2.png" alt="tqy加载"></p>
+<p>  具体的dex文件被放置到： /data/user/0/com.tqy.sdk.ad/ 目录上：<br>  <img src="/blog/2018/12/25/dex学习和探究/tqy-3.png" alt="tqy加载"></p>
+<p>  在通过dex文件的md5校验，之后加载类实例，覆盖原有的register方法，jar包中清晰可见在原有的基础上增加了adServiceLogic的实现。</p>
+<p>  <img src="/blog/2018/12/25/dex学习和探究/tqy-4.png" alt="tqy加载"></p>
+<p>  也意味着原有的方法只提供了基础的方法名称，在dex中才是方法的真正实现。</p>
+
+      
+    </div>
+    
+    
+    
+
+
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/12/14/UE16禁止显示切换/" rel="next" title="UE16禁止显示切换">
+                <i class="fa fa-chevron-left"></i> UE16禁止显示切换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/01/17/adb-命令大全/" rel="prev" title="adb 命令大全">
+                adb 命令大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      <div>
+        
+          
+
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod">版权声明</span>
+<br/>
+<p style="font-size: 10px;line-height: 30px"><a href="http://quintushorace.github.io/blog" style="color:#258FC6">horace's Notes</a> by <a href="http://quintushorace.github.io/blog" style="color:#258FC6">Horace</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://quintushorace.github.io/blog" style="color:#258FC6">horace</a>创作并维护的<a href="https://github.com/quintushorace" style="color:#258FC6">horace's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://quintushorace.github.io/blog" style="color:#258FC6">horace's Notes</a> 博客（ <a href="http://quintushorace.github.io/blog" style="color:#258FC6">https://github.com/quintushorace</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+
+        
+      </div>
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/avatar.jpg"
+                alt="Horace Zhao" />
+            
+              <p class="site-author-name" itemprop="name">Horace Zhao</p>
+              <p class="site-description motion-element" itemprop="description">宁静以致远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:quintus_horace@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/quintushorace" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/gutogu" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/quintushorace" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com" title="Github" target="_blank">Github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://stackoverflow.com" title="StackOverflow" target="_blank">StackOverflow</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://segmentfault.com" title="Segmentfault" target="_blank">Segmentfault</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dex学习和探究"><span class="nav-number">1.</span> <span class="nav-text">dex学习和探究</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Horace Zhao</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.5k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+    <!-- id: window.location.pathname,  -->
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: 'dex学习和探究',
+            owner: 'quintushorace',
+            repo: 'quintushorace.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '08b98c78dc0fb4a60ff44438b7e44841198db956',
+            
+                client_id: '379b85213af6208ee40b'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
